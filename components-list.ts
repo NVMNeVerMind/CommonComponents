@@ -8,7 +8,7 @@ import {PrimaryButtonComponent} from "./button/primary-button.component";
 import {LinkComponent} from "./link/link.component";
 import {PopUpComponent} from "./pop-up/pop-up.component";
 import {QuestionHeaderComponent} from "./question-header/question-header.component";
-import {SideBarComponent} from "./side-bar/side-bar.component";
+import {SideBarComponent} from "../component/side-bar/side-bar.component";
 import {ButtonComponent} from "./question-button/button.component";
 
 export const ComponentsList = [
