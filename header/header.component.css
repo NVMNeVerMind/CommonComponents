@@ -4,8 +4,15 @@ nav{
   align-items: center;
   justify-content: space-between;
   padding-right: 30px;
-  background: #2F435A;
   height: 125px;
+}
+
+.teacher {
+  background: #2F435A;
+}
+
+.student {
+  background: #39918C;
 }
 
 img{

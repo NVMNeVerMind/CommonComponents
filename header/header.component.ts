@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {Pages} from "../../app-routing.module";
 import {AuthService} from "../../services/auth/auth.service";
 
@@ -8,6 +8,8 @@ import {AuthService} from "../../services/auth/auth.service";
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
+  @Input() styleClass: string = '';
+
   constructor(
     protected readonly authService: AuthService
   ) {

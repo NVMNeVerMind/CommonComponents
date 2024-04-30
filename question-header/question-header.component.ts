@@ -7,6 +7,7 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
 })
 export class QuestionHeaderComponent {
   @Input() id: number = 1;
+  @Input() points: number = 0.5;
   @Output() changeEvent = new EventEmitter<number>;
   value: number = 0.5;
 

@@ -1,5 +1,5 @@
-<nav>
-  <img src="assets/cat.svg" alt="logo">
+<nav [class]="styleClass">
+  <img src="assets/logo.svg" alt="logo">
   <span>
     <a [routerLink]="'/' + Pages.login" *ngIf="!authService.isConnected()">Se connecter</a>
   </span>
