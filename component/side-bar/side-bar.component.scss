@@ -1,0 +1,38 @@
+nav{
+  height: 100%;
+  min-width: 254px;
+  background: linear-gradient(180deg, rgba(47,67,90,1) 0%, rgba(23,32,42,1) 100%);
+}
+
+ul{
+  padding-top: 45px;
+  padding-left: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+a{
+  display: flex;
+  align-items: center;
+  color: #EDF1F3;
+  font-weight: 600;
+  gap: 14px;
+  text-decoration: none;
+  padding: 6px;
+
+  div{
+    background-color: #39918C;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 55px;
+    height: 55px;
+  }
+}
+
+.active{
+  background-color: #3F5A79;
+  border-radius: 40px 0 0 40px;
+}

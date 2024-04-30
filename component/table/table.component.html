@@ -1,0 +1,20 @@
+<table>
+  <thead>
+    <th *ngFor="let head of heads">{{ head }}</th>
+  </thead>
+  <tbody>
+  <tr *ngFor="let row of rows">
+    <td class="" *ngFor="let content of row.content">
+      <p>{{ content }}</p>
+    </td>
+    <td *ngFor="let event of row.click">
+        <span *ngIf="event.isImg" (click)="event?.fn()">
+          <img [src]="event.content" [alt]="event?.alt">
+        </span>
+        <span *ngIf="!event?.isImg && event.condition" (click)="event?.fn()">
+          {{ event.content }}
+        </span>
+    </td>
+  </tr>
+  </tbody>
+</table>

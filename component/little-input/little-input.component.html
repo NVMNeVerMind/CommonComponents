@@ -1,0 +1,20 @@
+<div id="container">
+  <label id="label" for="little-input">{{label}}</label>
+  <div id="input-with-suffix">
+    <input [placeholder]="placeHolder"
+           id="little-input"
+           [type]="type"
+           [(ngModel)]="value"
+           (keyup)="onChange()"
+           (change)="onChange()"
+           (keydown)="onChange()"
+           *ngIf="!isSelect"
+           [ngClass]="isSuffix ? 'with-suffix' : veryLittle ? 'very-little-input' : 'little-input'">
+
+    <span *ngIf="isSuffix">{{suffix}}</span>
+  </div>
+  <select [(ngModel)]="value" *ngIf="isSelect" [ngClass]="veryLittle ? 'very-little-input' : ''" name="selector" id="little-selector" (change)="onChange()">
+    <option selected disabled>{{ this.firstValue }}</option>
+    <option *ngFor="let options of selectedOption" [value]="options.id">{{options.value}}</option>
+  </select>
+</div>
