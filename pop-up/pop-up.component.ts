@@ -8,10 +8,13 @@ import {NotificationService} from "../../services/notification/notification.serv
 })
 export class PopUpComponent {
   constructor(
-      private notificationService: NotificationService
+      protected notificationService: NotificationService
   ) {
   }
-  @Input() message: string = '';
-  // @ts-ignore
-  @Input() function: (...args: any) => void;
+
+  protected closed() {
+    this.notificationService.isEnabled = false;
+    this.notificationService.message = '';
+  }
+
 }
