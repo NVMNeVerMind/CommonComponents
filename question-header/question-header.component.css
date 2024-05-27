@@ -4,6 +4,10 @@
   align-items: center;
 }
 
+input {
+  min-width: 50px;
+}
+
 .little-input::placeholder{
   color: #39918C;
 }
