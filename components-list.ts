@@ -7,7 +7,6 @@ import {TableComponent} from "./table/table.component";
 import {PrimaryButtonComponent} from "./button/primary-button.component";
 import {LinkComponent} from "./link/link.component";
 import {PopUpComponent} from "./pop-up/pop-up.component";
-import {QuestionHeaderComponent} from "./question-header/question-header.component";
 import {ButtonComponent} from "./question-button/button.component";
 
 export const ComponentsList = [
@@ -20,6 +19,5 @@ export const ComponentsList = [
     LinkComponent,
     LittleInputComponent,
     PopUpComponent,
-    QuestionHeaderComponent,
     TableComponent
 ]
