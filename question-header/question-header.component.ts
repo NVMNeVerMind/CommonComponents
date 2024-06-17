@@ -10,7 +10,7 @@ export class QuestionHeaderComponent {
   @Input() points: number = 1.0;
   @Input() edit: boolean = false;
   @Output() changeEvent = new EventEmitter<number>;
-  value: number = 1;
+  value: number = 1.0;
 
   change() {
     console.log(this.value);
