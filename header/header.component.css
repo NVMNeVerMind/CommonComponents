@@ -7,6 +7,21 @@ nav{
   height: 125px;
 }
 
+a {
+  color: white;
+  text-decoration: none;
+}
+
+a:visited {
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
 .teacher {
   background: #2F435A;
 }

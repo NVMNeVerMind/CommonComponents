@@ -7,10 +7,13 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
 })
 export class QuestionHeaderComponent {
   @Input() id: number = 1;
+  @Input() points: number = 1.0;
+  @Input() edit: boolean = false;
   @Output() changeEvent = new EventEmitter<number>;
   value: number = 1.0;
 
   change() {
+    console.log(this.value);
     this.changeEvent.emit(this.value)
   }
 }

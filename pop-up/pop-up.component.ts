@@ -7,6 +7,7 @@ import {NotificationService} from "../../services/notification/notification.serv
   styleUrls: ['./pop-up.component.scss']
 })
 export class PopUpComponent {
+
   constructor(
       protected notificationService: NotificationService
   ) {
