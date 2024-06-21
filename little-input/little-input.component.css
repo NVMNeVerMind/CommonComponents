@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 #container{
   display: flex;
   flex-direction: row;
@@ -15,7 +19,7 @@
   border: 1px rgba(171, 107, 81, 0.2) solid;
   border-radius: 10px;
   min-height: 40px;
-  width: 100px;
+  min-width: 100px;
   padding-left: 17px;
   box-sizing: border-box;
 }
@@ -35,7 +39,8 @@
   border-radius: 10px;
   min-height: 40px;
   padding-left: 17px;
-  width: 150px;
+  min-width: 150px;
+  width: 10vw;
   -webkit-appearance: none;
   display: inline-block;
   background: url(/assets/drop_down_arrow.svg) no-repeat right 15px center;
@@ -56,7 +61,7 @@ span{
   border-top-right-radius: 10px;
   text-align: center;
   display: flex;
-  width: 20px;
+  width: 50px;
   align-items: center;
   justify-content: center;
   color: #2F435A;
@@ -78,7 +83,7 @@ span{
   border-bottom: 1px rgba(47, 67, 90, 0.1) solid;
   border-bottom-left-radius: 10px;
   border-top-left-radius: 10px;
-  width: 50px;
+  width: 70px;
   min-height: 40px;
   padding-left: 17px;
 }
