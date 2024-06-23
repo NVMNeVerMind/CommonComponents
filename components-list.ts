@@ -9,6 +9,7 @@ import {LinkComponent} from "./link/link.component";
 import {PopUpComponent} from "./pop-up/pop-up.component";
 import {ButtonComponent} from "./question-button/button.component";
 import {QuestionHeaderComponent} from "./question-header/question-header.component";
+import {ImageInputComponent} from "./image-input/image-input.component";
 
 export const ComponentsList = [
     PrimaryButtonComponent,
@@ -19,6 +20,7 @@ export const ComponentsList = [
     InputComponent,
     LinkComponent,
     LittleInputComponent,
+    ImageInputComponent,
     PopUpComponent,
     TableComponent,
     QuestionHeaderComponent,
