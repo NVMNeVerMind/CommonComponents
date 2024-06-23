@@ -19,7 +19,7 @@
   border: 1px rgba(171, 107, 81, 0.2) solid;
   border-radius: 10px;
   min-height: 40px;
-  min-width: 100px;
+  width: 150px;
   padding-left: 17px;
   box-sizing: border-box;
 }
