@@ -35,3 +35,20 @@
 button{
   cursor: pointer;
 }
+
+.rounded{
+  border-radius: 100%;
+  max-width: 75px;
+  min-height: 75px;
+  font-size: 40px;
+  background-color: #39918C;
+  position:absolute;
+  bottom:150px;
+  right:30px;
+}
+
+.fixed{
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+}
