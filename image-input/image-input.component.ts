@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Output} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 @Component({
   selector: 'app-image-input',
@@ -8,7 +8,7 @@ import {Component, EventEmitter, Output} from '@angular/core';
 export class ImageInputComponent {
 
   @Output() change: EventEmitter<File> = new EventEmitter();
-
+  @Input() id: string = '';
   readonly defaultLabel = 'Choisir une image';
   fileName: null | string = null;
   fileNamePreview = ''
