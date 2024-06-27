@@ -1,6 +1,9 @@
 <nav [class]="styleClass">
   <img src="assets/logo.svg" alt="logo">
-  <span>
-    <a [routerLink]="'/' + Pages.login" *ngIf="!authService.isConnected()">Se connecter</a>
-  </span>
+  <a *ngIf="!authService.isConnected()" [routerLink]="'/' + Pages.login">
+    <app-button-header styleClass="teacher" value="Se connecter"></app-button-header>
+  </a>
+  <a *ngIf="authService.isConnected()" (click)="logout()">
+    <app-button-header styleClass="teacher" value="Déconnexion"></app-button-header>
+  </a>
 </nav>
