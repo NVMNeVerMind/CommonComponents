@@ -10,6 +10,7 @@ import {PopUpComponent} from "./pop-up/pop-up.component";
 import {ButtonComponent} from "./question-button/button.component";
 import {QuestionHeaderComponent} from "./question-header/question-header.component";
 import {ImageInputComponent} from "./image-input/image-input.component";
+import {ButtonHeaderComponent} from "./button-header/button-header.component";
 
 export const ComponentsList = [
     PrimaryButtonComponent,
@@ -24,4 +25,5 @@ export const ComponentsList = [
     PopUpComponent,
     TableComponent,
     QuestionHeaderComponent,
+    ButtonHeaderComponent
 ]
