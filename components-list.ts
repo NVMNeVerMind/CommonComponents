@@ -11,19 +11,21 @@ import {ButtonComponent} from "./question-button/button.component";
 import {QuestionHeaderComponent} from "./question-header/question-header.component";
 import {ImageInputComponent} from "./image-input/image-input.component";
 import {ButtonHeaderComponent} from "./button-header/button-header.component";
+import {LoaderComponent} from "./loader/loader.component";
 
 export const ComponentsList = [
-  PrimaryButtonComponent,
-  ButtonComponent,
-  CheckboxComponent,
-  H1Component,
-  HeaderComponent,
-  InputComponent,
-  LinkComponent,
-  LittleInputComponent,
-  ImageInputComponent,
-  PopUpComponent,
-  TableComponent,
-  QuestionHeaderComponent,
-  ButtonHeaderComponent
+    PrimaryButtonComponent,
+    ButtonComponent,
+    CheckboxComponent,
+    H1Component,
+    HeaderComponent,
+    InputComponent,
+    LinkComponent,
+    LittleInputComponent,
+    ImageInputComponent,
+    PopUpComponent,
+    TableComponent,
+    QuestionHeaderComponent,
+    LoaderComponent,
+    ButtonHeaderComponent
 ]
