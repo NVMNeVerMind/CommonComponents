@@ -18,7 +18,6 @@ export class HeaderComponent {
   protected readonly Pages = Pages;
 
   logout() {
-    console.log("logout")
     this.authService.disconnect()
   }
 }

@@ -13,17 +13,17 @@ import {ImageInputComponent} from "./image-input/image-input.component";
 import {ButtonHeaderComponent} from "./button-header/button-header.component";
 
 export const ComponentsList = [
-    PrimaryButtonComponent,
-    ButtonComponent,
-    CheckboxComponent,
-    H1Component,
-    HeaderComponent,
-    InputComponent,
-    LinkComponent,
-    LittleInputComponent,
-    ImageInputComponent,
-    PopUpComponent,
-    TableComponent,
-    QuestionHeaderComponent,
-    ButtonHeaderComponent
+  PrimaryButtonComponent,
+  ButtonComponent,
+  CheckboxComponent,
+  H1Component,
+  HeaderComponent,
+  InputComponent,
+  LinkComponent,
+  LittleInputComponent,
+  ImageInputComponent,
+  PopUpComponent,
+  TableComponent,
+  QuestionHeaderComponent,
+  ButtonHeaderComponent
 ]
