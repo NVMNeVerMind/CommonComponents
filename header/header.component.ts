@@ -20,14 +20,6 @@ export class HeaderComponent {
   protected readonly Pages = Pages;
 
   logout() {
-    this.authService.disconnect().subscribe({
-      next: () => {
-        localStorage.clear()
-        this.router.navigateByUrl('/')
-      },
-      error: err => {
-        console.log(err)
-      }
-    })
+    this.authService.disconnect()
   }
 }
