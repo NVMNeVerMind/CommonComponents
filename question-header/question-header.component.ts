@@ -13,7 +13,6 @@ export class QuestionHeaderComponent {
   value: number = 1.0;
 
   change() {
-    console.log(this.value);
     this.changeEvent.emit(this.value)
   }
 }
