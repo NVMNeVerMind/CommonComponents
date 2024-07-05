@@ -34,6 +34,8 @@ export class LoginComponent {
         this.authService.saveUser(user)
         this.router.navigate(['/', Pages.home])
       }
+    }, (error) => {
+      this.notification.notify('Identifiants incorrects');
     })
   }
 
