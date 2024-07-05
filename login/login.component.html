@@ -1,0 +1,11 @@
+<div id="body">
+  <div id="container">
+    <app-h1 title="Se connecter"></app-h1>
+    <div id="input">
+      <app-input placeholder="Email" type="email" (change)="getEmail($event)"></app-input>
+      <app-input placeholder="Mot de passe" type="password" (change)="getPassword($event)"></app-input>
+    </div>
+
+    <app-button label="Se connecter" (clickEvent)="connect()"></app-button>
+  </div>
+</div>
