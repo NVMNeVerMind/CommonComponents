@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {AuthService} from "../../services/auth/auth.service";
 import {Credentials} from "../../services/auth/credentials";
 import {User} from "../../services/user/user";
@@ -12,6 +12,7 @@ import {Pages} from "../../app-routing.module";
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
+  @Input() navTo: string = '/';
   credentials: Credentials = {
     email: "",
     password: ""
@@ -31,7 +32,7 @@ export class LoginComponent {
     this.authService.login(this.credentials).subscribe((user: User) => {
       if(user){
         this.authService.saveUser(user)
-        this.router.navigate(['/', Pages.importClass])
+        this.router.navigate(['/', Pages.home])
       }
     })
   }
