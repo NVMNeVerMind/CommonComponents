@@ -1,9 +1,10 @@
 <button [disabled]="disabled" [class]="styleClass"
         [ngClass]="[
+        styleClass,
           primary ? 'primary-button' : 'secondary-button', bigButton ? 'big' : '',
           rounded ? 'rounded' : '',
           fixed ? 'fixed' : '',
          ]"
         (click)="emit()">
-  {{ label }}
+    {{ label }}
 </button>

@@ -12,6 +12,7 @@ import {Pages} from "../../app-routing.module";
     styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
+    @Input() styleClass: string = 'teacher';
     @Input() navTo: string = '/';
     credentials: Credentials = {
         email: "",

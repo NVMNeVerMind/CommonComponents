@@ -8,5 +8,5 @@ import {Component, Input} from '@angular/core';
 export class H1Component {
   @Input() title: string = '';
   @Input() big: boolean = false;
-
+  @Input() styleClass: string = 'teacher';
 }
