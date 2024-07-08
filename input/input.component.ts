@@ -6,7 +6,6 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
   styleUrls: ['./input.component.css']
 })
 export class InputComponent {
-
   @Input() max: number = 180;
   @Input() min: number = 0;
   @Input() label: string = '';

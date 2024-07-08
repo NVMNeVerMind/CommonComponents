@@ -13,21 +13,23 @@ import {ImageInputComponent} from "./image-input/image-input.component";
 import {ButtonHeaderComponent} from "./button-header/button-header.component";
 import {LoaderComponent} from "./loader/loader.component";
 import {LoginComponent} from "./login/login.component";
+import {RenewPasswordComponent} from "./renew-password/renew-password.component";
 
 export const ComponentsList = [
-  PrimaryButtonComponent,
-  ButtonComponent,
-  CheckboxComponent,
-  H1Component,
-  HeaderComponent,
-  InputComponent,
-  LinkComponent,
-  LittleInputComponent,
-  ImageInputComponent,
-  PopUpComponent,
-  TableComponent,
-  QuestionHeaderComponent,
-  LoaderComponent,
-  ButtonHeaderComponent,
-  LoginComponent
+    PrimaryButtonComponent,
+    ButtonComponent,
+    CheckboxComponent,
+    H1Component,
+    HeaderComponent,
+    InputComponent,
+    LinkComponent,
+    LittleInputComponent,
+    ImageInputComponent,
+    PopUpComponent,
+    TableComponent,
+    QuestionHeaderComponent,
+    LoaderComponent,
+    ButtonHeaderComponent,
+    LoginComponent,
+    RenewPasswordComponent
 ]
