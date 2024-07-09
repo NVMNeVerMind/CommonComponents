@@ -20,7 +20,6 @@ export class ResetPasswordComponent implements OnInit
     }
 
     ngOnInit(): void {
-        console.log("Hello")
     }
 
     email: string = '';
