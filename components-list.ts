@@ -14,6 +14,7 @@ import {ButtonHeaderComponent} from "./button-header/button-header.component";
 import {LoaderComponent} from "./loader/loader.component";
 import {LoginComponent} from "./login/login.component";
 import {RenewPasswordComponent} from "./renew-password/renew-password.component";
+import {ResetPasswordComponent} from "./reset-password/reset-password.component";
 
 export const ComponentsList = [
     PrimaryButtonComponent,
@@ -31,5 +32,6 @@ export const ComponentsList = [
     LoaderComponent,
     ButtonHeaderComponent,
     LoginComponent,
-    RenewPasswordComponent
+    RenewPasswordComponent,
+    ResetPasswordComponent,
 ]

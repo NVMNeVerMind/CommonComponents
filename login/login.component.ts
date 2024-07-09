@@ -55,4 +55,6 @@ export class LoginComponent {
             this.credentials.password = password.trim()
         }
     }
+
+    protected readonly Pages = Pages;
 }

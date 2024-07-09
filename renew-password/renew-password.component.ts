@@ -67,7 +67,7 @@ export class RenewPasswordComponent implements OnInit {
                 next: (renewed) => {
                     if (renewed) {
                         this.notificationService.notify('Mot de passe modifié avec succès')
-                        this.router.navigate(['/', Pages.home])
+                        this.router.navigate(['/', Pages.login])
                     } else {
                         this.notificationService.notify('Impossible de modifier votre mot de passe avec le lien fourni', true)
                     }
