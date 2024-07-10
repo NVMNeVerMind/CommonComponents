@@ -31,7 +31,6 @@ export class RenewPasswordComponent implements OnInit {
                 this.schoolId = params['s']
                 this.token = params['t']
             } else {
-                console.log("navigate");
                 this.router.navigateByUrl('/' + Pages.home);
             }
         });
