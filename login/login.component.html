@@ -1,5 +1,5 @@
-<div id="body">
-    <div id="container">
+<div id="page">
+    <form id="container">
         <app-h1 title="Se connecter" [styleClass]="styleClass"></app-h1>
         <div id="input">
             <app-input placeholder="Email" type="email" (change)="getEmail($event)"></app-input>
@@ -8,5 +8,5 @@
 
         <app-button label="Se connecter" (clickEvent)="connect()" [styleClass]="styleClass"></app-button>
         <a [href]="'/' + Pages.resetPwd" [class]="styleClass">Mot de passe oublié ?</a>
-    </div>
+    </form>
 </div>
