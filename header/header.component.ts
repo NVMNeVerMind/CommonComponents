@@ -20,6 +20,15 @@ export class HeaderComponent {
   protected readonly Pages = Pages;
 
   logout() {
-    this.authService.disconnect()
+    this.authService.disconnect().subscribe({
+      next: () => {
+        this.authService.logout()
+        this.router.navigate(['/', Pages.login])
+      },
+      error: () => {
+        this.authService.logout()
+        this.router.navigate(['/', Pages.login])
+      }
+    })
   }
 }
