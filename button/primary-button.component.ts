@@ -13,7 +13,9 @@ export class PrimaryButtonComponent {
   @Input() disabled: boolean = false;
   @Input() bigButton: boolean = false;
   @Input() fixed: boolean = false;
+  @Input() danger: boolean = false;
   @Output() clickEvent: EventEmitter<boolean> = new EventEmitter<boolean>();
+
 
   emit() {
     this.clickEvent.emit(true)
