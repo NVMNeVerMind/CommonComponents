@@ -1,4 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Theme} from "../little-input/theme";
 
 @Component({
   selector: 'app-input',
@@ -15,8 +16,11 @@ export class InputComponent {
   @Input() isSuffix: boolean = false;
 
   @Output() change = new EventEmitter<string>();
+  @Input() theme : Theme = Theme.Light;
 
   onChange(){
     this.change.emit(this.value)
   }
+
+  protected readonly Theme = Theme;
 }

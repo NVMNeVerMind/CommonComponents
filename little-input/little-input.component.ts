@@ -1,5 +1,6 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {SelectOption} from "./select.option";
+import {Theme} from "./theme";
 
 @Component({
   selector: 'app-little-input',
@@ -17,6 +18,7 @@ export class LittleInputComponent {
   @Input() isSuffix: boolean = false;
   @Input() veryLittle: boolean = false;
   @Input() suffix: string = '';
+  @Input() theme: Theme = Theme.Light;
 
   @Output() change: EventEmitter<any> = new EventEmitter();
   @Input() firstValue: string | number = '';
@@ -29,4 +31,6 @@ export class LittleInputComponent {
     }
     else if(!this.isSelect) this.change.emit(this.value)
   }
+
+  protected readonly Theme = Theme;
 }

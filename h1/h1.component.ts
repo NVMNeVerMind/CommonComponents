@@ -1,4 +1,5 @@
 import {Component, Input} from '@angular/core';
+import {Theme} from "../little-input/theme";
 
 @Component({
   selector: 'app-h1',
@@ -9,4 +10,7 @@ export class H1Component {
   @Input() title: string = '';
   @Input() big: boolean = false;
   @Input() styleClass: string = 'teacher';
+  @Input() theme: Theme = Theme.Light;
+
+  protected readonly Theme = Theme;
 }

@@ -10,6 +10,10 @@ h1{
   color: #39918C;
 }
 
+.dark {
+  color: white;
+}
+
 @media (min-width: 600px) {
   h1{
     font-size: 36px;

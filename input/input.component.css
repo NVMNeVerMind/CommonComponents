@@ -5,19 +5,42 @@
 }
 
 #label{
-  color: #2F435A;
   font-weight: bold;
   font-size: 16px;
 }
 
 .input{
-  border: 1px rgba(47, 67, 90, 0.1) solid;
-  background-color: rgba(47, 67, 90, 0.02);
   border-radius: 10px;
   min-height: 40px;
   padding-left: 17px;
 }
 
-#input::placeholder{
-  color: #2F435A;
+.light  {
+  #label {
+    color: #2F435A;
+  }
+
+  #input::placeholder{
+    color: #2F435A;
+  }
+
+  .input {
+    border: 1px rgba(47, 67, 90, 0.1) solid;
+    background-color: rgba(47, 67, 90, 0.02);
+  }
+}
+
+.dark {
+  #label {
+    color: white;
+  }
+
+  #input::placeholder{
+    color: #2F435A;
+  }
+
+  .input {
+    border: 1px rgba(47, 67, 90, 0.1) solid;
+    background-color: white;
+  }
 }

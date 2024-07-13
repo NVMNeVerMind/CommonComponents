@@ -92,5 +92,18 @@ input, select{
   background-color: rgba(47, 67, 90, 0.02);
 }
 
+.dark {
+  label {
+    color: white !important;
+  }
+
+  #little-selector {
+    background-color: white;
+  }
+
+  select:invalid {
+    color: #2F435A;
+  }
+}
 
 
