@@ -39,7 +39,7 @@ export class LoginComponent {
                 }
             },
             error: (_) => {
-                this.notification.notify('Identifiants incorrects');
+                this.notification.notify('Identifiants incorrects', true);
             }
         })
     }
