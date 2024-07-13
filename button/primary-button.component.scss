@@ -64,3 +64,8 @@ button{
   bottom: 30px;
   right: 30px;
 }
+
+.disabled{
+  background-color: #aaaaaa !important;
+  cursor: not-allowed !important;
+}

@@ -27,7 +27,7 @@ export class HeaderComponent {
       },
       error: () => {
         this.authService.logout()
-        this.router.navigate(['/', Pages.login])
+        this.router.navigate([Pages.login])
       }
     })
   }
