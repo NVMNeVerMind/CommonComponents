@@ -14,6 +14,7 @@ export class InputComponent {
   @Input() type: string = '';
   @Input() value: string = '';
   @Input() isSuffix: boolean = false;
+  @Input() large: boolean = false;
 
   @Output() change = new EventEmitter<string>();
   @Input() theme : Theme = Theme.Light;
