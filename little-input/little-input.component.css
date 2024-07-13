@@ -101,6 +101,16 @@ input, select{
     background-color: white;
   }
 
+  input, select{
+    background-color: white !important;
+    color: #3F5A79;
+  }
+
+  span {
+    color: #3F5A79;
+    background-color: white;
+  }
+
   select:invalid {
     color: #2F435A;
   }

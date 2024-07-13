@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {Theme} from "../little-input/theme";
+import {Theme} from "../theme";
 
 @Component({
   selector: 'app-h1',

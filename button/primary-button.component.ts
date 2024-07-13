@@ -1,4 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Theme} from "../theme";
 
 @Component({
   selector: 'app-button',
@@ -15,9 +16,12 @@ export class PrimaryButtonComponent {
   @Input() fixed: boolean = false;
   @Input() danger: boolean = false;
   @Output() clickEvent: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Input() theme: Theme = Theme.Light;
 
 
   emit() {
     this.clickEvent.emit(true)
   }
+
+  protected readonly Theme = Theme;
 }

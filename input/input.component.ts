@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {Theme} from "../little-input/theme";
+import {Theme} from "../theme";
 
 @Component({
   selector: 'app-input',

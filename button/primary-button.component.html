@@ -1,12 +1,13 @@
 <button [disabled]="disabled" [class]="styleClass"
         [ngClass]="[
-        styleClass,
+          styleClass,
           primary ? 'primary-button' : 'secondary-button', bigButton ? 'big' : '',
-          danger ? 'danger' : '',
-          rounded ? 'rounded' : '',
-          fixed ? 'fixed' : '',
-          disabled ? 'disabled' : ''
          ]"
+        [class.rounded]="rounded"
+        [class.fixed]="fixed"
+        [class.disabled]="disabled"
+        [class.dark]="theme === Theme.Dark"
+        [class.danger]="danger"
         (click)="emit()">
     {{ label }}
 </button>

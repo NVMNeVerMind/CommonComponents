@@ -1,5 +1,7 @@
 <div id="container">
-  <label [class]="styleClass" id="label" for="checkbox">{{label}}</label>
-  <img *ngIf="!isChecked" id="checkbox" src="../../../assets/check-empty.svg" alt="empty checkbox" (click)="checked()">
-  <img *ngIf="isChecked" id="checkbox" src="../../../assets/check-ok.svg" alt="ok checkbox" (click)="checked()">
+  <label [class]="styleClass"
+         [class.dark]="theme === Theme.Dark"
+         id="label" for="checkbox">{{label}}</label>
+  <img *ngIf="!isChecked" id="checkbox" src="assets/check-empty{{theme === Theme.Dark ? '-light' : ''}}.svg" alt="empty checkbox" (click)="checked()">
+  <img *ngIf="isChecked" id="checkbox" src="assets/check-ok{{theme === Theme.Dark ? '-light' : ''}}.svg" alt="ok checkbox" (click)="checked()">
 </div>
