@@ -8,6 +8,7 @@
            id="little-input"
            [type]="type"
            [(ngModel)]="value"
+           [min]="min"
            (keyup)="onChange()"
            (change)="onChange()"
            (keydown)="onChange()"

@@ -9,7 +9,7 @@ import {Theme} from "./theme";
 })
 export class LittleInputComponent {
   @Input() max: number = 180;
-  @Input() min: number = 0;
+  @Input() min: number | string = 0;
   @Input() label: string = '';
   @Input() placeHolder: string = '';
   @Input() type: string = '';
