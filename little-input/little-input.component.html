@@ -20,6 +20,6 @@
   </div>
   <select [(ngModel)]="value" *ngIf="isSelect" [ngClass]="veryLittle ? 'very-little-input' : ''" name="selector" id="little-selector" (change)="onChange()">
     <option selected disabled>{{ this.firstValue }}</option>
-    <option *ngFor="let options of selectedOption" [value]="options.id" [attr.selected]='selectedOption.length === 1 ? "selected" : null'>{{options.value}}</option>
+    <option *ngFor="let option of selectedOption" [value]="option.id" [attr.selected]='getDefault()'>{{option.value}}</option>
   </select>
 </div>
