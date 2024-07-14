@@ -19,6 +19,7 @@ export class LittleInputComponent {
   @Input() veryLittle: boolean = false;
   @Input() suffix: string = '';
   @Input() theme: Theme = Theme.Light;
+  @Input() large: boolean = false;
 
   @Output() change: EventEmitter<any> = new EventEmitter();
   @Input() firstValue: string | number = '';

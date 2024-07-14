@@ -13,7 +13,7 @@
            (change)="onChange()"
            (keydown)="onChange()"
            *ngIf="!isSelect"
-           [ngClass]="isSuffix ? 'with-suffix' : veryLittle ? 'very-little-input' : 'little-input'"
+           [ngClass]="[isSuffix ? 'with-suffix' : veryLittle ? 'very-little-input' : 'little-input', large ? 'large' : '']"
     >
 
     <span *ngIf="isSuffix">{{suffix}}</span>
