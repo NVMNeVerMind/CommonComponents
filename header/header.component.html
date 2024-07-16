@@ -1,5 +1,5 @@
 <nav [class]="styleClass">
-  <img src="assets/logo.svg" alt="logo">
+  <img src="assets/logo.svg" alt="logo" (click)="landing()">
   <a *ngIf="!authService.isConnected()" [routerLink]="'/' + Pages.login">
     <app-button-header styleClass="teacher" value="Se connecter"></app-button-header>
   </a>

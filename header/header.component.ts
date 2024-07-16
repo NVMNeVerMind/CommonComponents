@@ -29,4 +29,8 @@ export class HeaderComponent {
       }
     })
   }
+
+  landing() {
+    this.router.navigate(['/', Pages.landing])
+  }
 }

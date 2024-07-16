@@ -13,6 +13,11 @@ a {
   font-size: 0.8rem;
 }
 
+#input {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
 
 a.teacher {
   color: #39918C;
