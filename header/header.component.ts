@@ -31,6 +31,6 @@ export class HeaderComponent {
   }
 
   landing() {
-    this.router.navigate(['/', Pages.landing])
+    this.router.navigateByUrl('/' + Pages.landing)
   }
 }
