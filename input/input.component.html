@@ -2,6 +2,6 @@
      [class.light]="theme === Theme.Light"
      [class.dark]="theme === Theme.Dark"
 >
-  <label id="label">{{label}}</label>
-  <input [placeholder]="placeholder" [ngClass]="['input', large ? 'large' : '']" [type]="type" [(ngModel)]="value" (keyup)="onChange()">
+  <label id="label" *ngIf="label != ''">{{label}}</label>
+  <input [placeholder]="placeholder" class="input" [type]="type" [(ngModel)]="value" (keyup)="onChange()">
 </div>
