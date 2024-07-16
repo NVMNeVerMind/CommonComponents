@@ -18,6 +18,7 @@ export class LoginComponent {
         email: "",
         password: ""
     }
+    isLoading = false;
 
     constructor(
         private readonly authService: AuthService,
@@ -31,6 +32,7 @@ export class LoginComponent {
             this.notification.notify('Veuillez entrer un email et un mot de passe valide', true)
             return
         }
+        this.isLoading = true;
         this.authService.login(this.credentials).subscribe({
             next: (user: User) => {
                 if (user) {
@@ -41,7 +43,7 @@ export class LoginComponent {
             error: (_) => {
                 this.notification.notify('Identifiants incorrects', true);
             }
-        })
+        }).add(() => this.isLoading = false);
     }
 
     getEmail(email: string) {

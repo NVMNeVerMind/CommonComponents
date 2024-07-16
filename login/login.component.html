@@ -6,7 +6,9 @@
             <app-input [large]="true" placeholder="Mot de passe" type="password" (change)="getPassword($event)"></app-input>
         </div>
 
+
         <app-button label="Se connecter" (clickEvent)="connect()" [styleClass]="styleClass"></app-button>
         <a [href]="'/' + Pages.resetPwd" [class]="styleClass">Mot de passe oublié ?</a>
+        <app-loader *ngIf="isLoading"></app-loader>
     </form>
 </div>
