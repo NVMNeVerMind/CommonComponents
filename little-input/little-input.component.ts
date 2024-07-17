@@ -35,12 +35,13 @@ export class LittleInputComponent {
 
   protected readonly Theme = Theme;
 
-  getDefault() {
-    if(this.selectedOption.length === 1) {
-      this.change.emit(this.selectedOption[0].id);
-      return "selected";
-    } else {
-      return null;
-    }
-  }
+  // getDefault() {
+  //   console.log("Coucou");
+  //   if(this.selectedOption.length === 1) {
+  //     this.change.emit(this.selectedOption[0].id);
+  //     return "selected";
+  //   } else {
+  //     return null;
+  //   }
+  // }
 }
