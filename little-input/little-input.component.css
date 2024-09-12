@@ -74,7 +74,10 @@ span{
 #input-with-suffix{
   display: flex;
   flex-direction: row;
-  width: 100%;
+}
+
+#input-with-suffix.no-suffix{
+  width: 100%; /* Input takes 100% of available space */
 }
 
 .with-suffix{

@@ -3,7 +3,7 @@
      [class.dark]="theme === Theme.Dark"
 >
   <label id="label" for="little-input">{{label}}</label>
-  <div id="input-with-suffix">
+  <div id="input-with-suffix" [ngClass]="isSuffix ? 'has-suffix' : 'no-suffix'">
     <input [placeholder]="placeHolder"
            id="little-input"
            [type]="type"
@@ -15,7 +15,6 @@
            *ngIf="!isSelect"
            [ngClass]="[isSuffix ? 'with-suffix' : veryLittle ? 'very-little-input' : 'little-input', large ? 'large' : '']"
     >
-
     <span *ngIf="isSuffix">{{suffix}}</span>
   </div>
   <select [(ngModel)]="value" *ngIf="isSelect" [ngClass]="veryLittle ? 'very-little-input' : ''" name="selector" id="little-selector" (change)="onChange()">
