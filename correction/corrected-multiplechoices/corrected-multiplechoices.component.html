@@ -1,0 +1,20 @@
+<div id="rows">
+  <div class="row" *ngFor="let choice of question.multiplechoices">
+    <div class="checkAnswer">
+      <app-clickable-answer [response]="choice.content"
+                            [isSelected]="selected.includes(choice.id!)"
+                            [isCorrect]="selected.includes(choice.id!) && !choice.isCorrect"></app-clickable-answer>
+      <img *ngIf="selected.includes(choice.id!) && choice.isCorrect" src="assets/check.png"
+           alt="correct">
+      <img *ngIf="selected.includes(choice.id!) && !choice.isCorrect" src="assets/red-cross.png"
+           alt="correct">
+      <img *ngIf="!selected.includes(choice.id!) && choice.isCorrect" src="assets/wrong-check.png"
+           alt="correct">
+      <div id="empty"
+           *ngIf="!(!selected.includes(choice.id!) && choice.isCorrect)
+                && !(selected.includes(choice.id!) && !choice.isCorrect)
+                && !(selected.includes(choice.id!) && choice.isCorrect)">
+      </div>
+    </div>
+  </div>
+</div>

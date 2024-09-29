@@ -15,23 +15,33 @@ import {LoaderComponent} from "./loader/loader.component";
 import {LoginComponent} from "./login/login.component";
 import {RenewPasswordComponent} from "./renew-password/renew-password.component";
 import {ResetPasswordComponent} from "./reset-password/reset-password.component";
+import {CorrectedMatchedComponent} from "./correction/corrected-matched/corrected-matched.component";
+import {CorrectedTextComponent} from "./correction/corrected-text/corrected-text.component";
+import {CorrectedOrderedComponent} from "./correction/corrected-ordered/corrected-ordered.component";
+import {
+  CorrectedMultiplechoicesComponent
+} from "./correction/corrected-multiplechoices/corrected-multiplechoices.component";
 
 export const ComponentsList = [
-    PrimaryButtonComponent,
-    ButtonComponent,
-    CheckboxComponent,
-    H1Component,
-    HeaderComponent,
-    InputComponent,
-    LinkComponent,
-    LittleInputComponent,
-    ImageInputComponent,
-    PopUpComponent,
-    TableComponent,
-    QuestionHeaderComponent,
-    LoaderComponent,
-    ButtonHeaderComponent,
-    LoginComponent,
-    RenewPasswordComponent,
-    ResetPasswordComponent,
+  PrimaryButtonComponent,
+  ButtonComponent,
+  CheckboxComponent,
+  H1Component,
+  HeaderComponent,
+  InputComponent,
+  LinkComponent,
+  LittleInputComponent,
+  ImageInputComponent,
+  PopUpComponent,
+  TableComponent,
+  QuestionHeaderComponent,
+  LoaderComponent,
+  ButtonHeaderComponent,
+  LoginComponent,
+  RenewPasswordComponent,
+  ResetPasswordComponent,
+  CorrectedMatchedComponent,
+  CorrectedTextComponent,
+  CorrectedOrderedComponent,
+  CorrectedMultiplechoicesComponent
 ]

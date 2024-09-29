@@ -1,0 +1,4 @@
+<div>
+  <span *ngIf="answer.trim() != ''" [ngClass]="['answer', isCorrect ? 'right' : 'wrong']">{{ answer }}</span>
+</div>
+<span class="standardAnswer">Réponse attendue : {{ standardAnswer }}</span>
