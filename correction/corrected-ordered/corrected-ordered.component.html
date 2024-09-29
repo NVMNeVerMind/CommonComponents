@@ -1,8 +1,0 @@
-<div class="ordered-container">
-  <div *ngFor="let option of answerOrdered, let i = index">
-    <div [class]="['response', isCorrect(i) ? 'right' : 'wrong']">
-      <p>{{ option.content }}</p>
-    </div>
-    <p class="expected" *ngIf="!isCorrect(i)">Attendu : {{ ordered[i].content }}</p>
-  </div>
-</div>
