@@ -1,0 +1,25 @@
+h1{
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.teacher {
+  color: #2F435A;
+}
+.student {
+  color: #39918C;
+}
+
+.admin {
+  color: white;
+}
+
+.dark {
+  color: white;
+}
+
+@media (min-width: 600px) {
+  h1{
+    font-size: 20px;
+  }
+}

@@ -15,12 +15,14 @@ import {LoaderComponent} from "./loader/loader.component";
 import {LoginComponent} from "./login/login.component";
 import {RenewPasswordComponent} from "./renew-password/renew-password.component";
 import {ResetPasswordComponent} from "./reset-password/reset-password.component";
+import {H2Component} from "./h2/h2.component";
 
 export const ComponentsList = [
   PrimaryButtonComponent,
   ButtonComponent,
   CheckboxComponent,
   H1Component,
+  H2Component,
   HeaderComponent,
   InputComponent,
   LinkComponent,
