@@ -11,7 +11,7 @@ export class LittleInputComponent {
   @Input() max: number = 180;
   @Input() min: number | string = 0;
   @Input() label: string = '';
-  @Input() placeHolder: string = '';
+  @Input() placeholder: string = '';
   @Input() type: string = '';
   @Input() isSelect: boolean = false;
   @Input() selectedOption: SelectOption[] = []
