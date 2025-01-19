@@ -1,9 +1,9 @@
 <nav [class]="styleClass">
-  <img src="assets/logo.svg" alt="logo" (click)="landing()">
+  <img (click)="landing()" alt="logo" class="hidden sm:block" src="assets/logo.svg">
   <a *ngIf="!authService.isConnected()" [routerLink]="'/' + Pages.login">
     <app-button-header styleClass="teacher" value="Se connecter"></app-button-header>
   </a>
-  <a *ngIf="authService.isConnected()" (click)="logout()">
+  <a (click)="logout()" *ngIf="authService.isConnected()">
     <app-button-header styleClass="teacher" value="Déconnexion"></app-button-header>
   </a>
 </nav>
