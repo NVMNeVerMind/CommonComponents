@@ -1,24 +1,25 @@
-<div id="container"
+<div [class.dark]="theme === Theme.Dark"
      [class.light]="theme === Theme.Light"
-     [class.dark]="theme === Theme.Dark"
+     id="container"
 >
-  <label id="label" for="little-input">{{label}}</label>
-  <div id="input-with-suffix" [ngClass]="isSuffix ? 'has-suffix' : 'no-suffix'">
-    <input [placeholder]="placeholder"
-           id="little-input"
-           [type]="type"
+  <label for="little-input" id="label">{{ label }}</label>
+  <div *ngIf="!isSelect" [ngClass]="isSuffix ? 'has-suffix' : 'no-suffix'" id="input-with-suffix">
+    <input (change)="onChange()"
+           (keydown)="onChange()"
+           (keyup)="onChange()"
+           *ngIf="!isSelect"
            [(ngModel)]="value"
            [min]="min"
-           (keyup)="onChange()"
-           (change)="onChange()"
-           (keydown)="onChange()"
-           *ngIf="!isSelect"
            [ngClass]="[isSuffix ? 'with-suffix' : veryLittle ? 'very-little-input' : 'little-input', large ? 'large' : '']"
+           [placeholder]="placeholder"
+           [type]="type"
+           id="little-input"
     >
-    <span *ngIf="isSuffix">{{suffix}}</span>
+    <span *ngIf="isSuffix">{{ suffix }}</span>
   </div>
-  <select [(ngModel)]="value" *ngIf="isSelect" [ngClass]="veryLittle ? 'very-little-input' : ''" name="selector" id="little-selector" (change)="onChange()">
-    <option selected disabled>{{ this.firstValue }}</option>
-    <option *ngFor="let option of selectedOption" [value]="option.id">{{option.value}}</option>
+  <select (change)="onChange()" *ngIf="isSelect" [(ngModel)]="value" [ngClass]="veryLittle ? 'very-little-input' : ''"
+          id="little-selector" name="selector">
+    <option disabled selected>{{ this.firstValue }}</option>
+    <option *ngFor="let option of selectedOption" [value]="option.id">{{ option.value }}</option>
   </select>
 </div>
