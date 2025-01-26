@@ -1,14 +1,14 @@
 <div id="page">
-    <form id="container">
-        <app-h1 title="Se connecter" [styleClass]="styleClass"></app-h1>
-        <div id="input">
-            <app-input [large]="true" placeholder="Email" type="email" (change)="getEmail($event)"></app-input>
-            <app-input [large]="true" placeholder="Mot de passe" type="password" (change)="getPassword($event)"></app-input>
-        </div>
+  <form id="container">
+    <app-h1 title="Se connecter" [styleClass]="styleClass"></app-h1>
+    <div id="input">
+      <input hlmInput placeholder="Email" name="email" [(ngModel)]="credentials.email" type="email">
+      <input hlmInput placeholder="Mot de passe" name="password" [(ngModel)]="credentials.password" type="password">
+    </div>
 
 
-        <app-button label="Se connecter" (clickEvent)="connect()" [styleClass]="styleClass"></app-button>
-        <a [href]="'/' + Pages.resetPwd" [class]="styleClass">Mot de passe oublié ?</a>
-        <app-loader *ngIf="isLoading"></app-loader>
-    </form>
+    <app-button label="Se connecter" (clickEvent)="connect()" [styleClass]="styleClass"></app-button>
+    <a [href]="'/' + Pages.resetPwd" [class]="styleClass">Mot de passe oublié ?</a>
+    <app-loader *ngIf="isLoading"></app-loader>
+  </form>
 </div>

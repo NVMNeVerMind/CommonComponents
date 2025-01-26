@@ -28,6 +28,7 @@ export class LoginComponent {
     }
 
     connect() {
+      console.log(this.credentials);
         if (this.credentials.email.trim().length == 0 && this.credentials.password.trim().length <= 5) {
             this.notification.notify('Veuillez entrer un email et un mot de passe valide', true)
             return
