@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {provideIcons} from '@ng-icons/core';
-import {lucideChevronsUpDown, lucideCheck, lucideSearch} from '@ng-icons/lucide';
+import {lucideCheck, lucideChevronsUpDown, lucideSearch} from '@ng-icons/lucide';
 import {SelectOption} from "../little-input/select.option";
 
 @Component({
@@ -48,9 +48,13 @@ export class DropdownComponent implements OnInit {
     }
   }
 
-  changeValue(option: SelectOption) {
-    this.isVisible = !this.isVisible
+  protected setValue(option: SelectOption) {
     this.searchString = option.value;
+    this.isVisible = false;
+  }
+
+  changeValue(option: SelectOption) {
+    this.setValue(option);
     this.valueChange.emit(option.id)
   }
 }
