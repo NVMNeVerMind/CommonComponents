@@ -1,0 +1,52 @@
+<div class="hidden md:block">
+  <table class="w-full">
+    <thead>
+    <tr class="border-b">
+      <th *ngFor="let column of columns" class="text-left py-4 px-6 text-sm font-semibold text-gray-600">
+        {{ column.label }}
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <ng-container *ngIf="rowTemplate; else defaultRowTemplate">
+      <ng-container *ngFor="let row of paginatedData; let idx = index">
+        <ng-container *ngTemplateOutlet="rowTemplate; context: { $implicit: row, index: idx }"></ng-container>
+      </ng-container>
+    </ng-container>
+    <ng-template #defaultRowTemplate>
+      <tr *ngFor="let row of paginatedData; let idx = index" [ngClass]="{'bg-gray-50': idx % 2 === 0}">
+        <td *ngFor="let column of columns" class="py-4 px-6 text-sm text-gray-600">
+          {{ row[column.field] }}
+        </td>
+      </tr>
+    </ng-template>
+    </tbody>
+  </table>
+</div>
+
+<div class="hidden md:flex border-t px-4 py-4 sm:px-6 flex-col sm:flex-row items-center justify-between gap-4">
+  <span class="text-sm text-gray-600 order-2 sm:order-1">
+    {{ (currentPage - 1) * itemsPerPage + 1 }}
+    – {{ Math.min(currentPage * itemsPerPage, data.length) }} of {{ data.length }}
+  </span>
+  <div class="flex items-center gap-4 order-1 sm:order-2 w-full sm:w-auto justify-between sm:justify-end">
+    <div class="flex items-center gap-2">
+      <span class="text-sm text-gray-600 whitespace-nowrap">Par page</span>
+      <select [(ngModel)]="itemsPerPage" class="border rounded-lg px-2 py-1.5 text-sm bg-white">
+        <option [ngValue]="5">5</option>
+        <option [ngValue]="10">10</option>
+        <option [ngValue]="25">25</option>
+      </select>
+    </div>
+    <div class="flex items-center gap-1 ml-4">
+      <button (click)="setPage(1)" class="hidden p-2 rounded hover:bg-gray-100 sm:block">&lt;&lt;</button>
+      <button (click)="prevPage()" class="p-2 rounded hover:bg-gray-100">
+        <lucide-icon class="h-5 w-5 text-gray-600" name="chevron-left"/>
+      </button>
+      <button (click)="nextPage()" class="p-2 rounded hover:bg-gray-100">
+        <lucide-icon class="h-5 w-5 text-gray-600" name="chevron-right"/>
+      </button>
+      <button (click)="setPage(totalPages)" class="hidden p-2 rounded hover:bg-gray-100 sm:block">&gt;&gt;</button>
+    </div>
+  </div>
+</div>
