@@ -1,6 +1,6 @@
 .primary-button {
   background-color: #2F435A;
-  width: 150px;
+  min-width: 150px;
   height: 50px;
   border: none;
   border-radius: 10px;
@@ -17,7 +17,7 @@
   background-color: #39918C;
 }
 
-.secondary-button{
+.secondary-button {
   background-color: transparent;
   width: 150px;
   height: 50px;
@@ -38,34 +38,34 @@
   border: white solid 1px;
 }
 
-.big{
+.big {
   width: 100%;
   padding-left: 20px;
   padding-right: 20px;
 }
 
-button{
+button {
   cursor: pointer;
 }
 
-.rounded{
+.rounded {
   border-radius: 100%;
   max-width: 60px;
   min-height: 60px;
   font-size: 40px;
   background-color: #39918C;
-  position:absolute;
-  bottom: 50px;
-  right:30px;
+  position: absolute;
+  bottom: 150px;
+  right: 30px;
 }
 
-.fixed{
+.fixed {
   position: absolute;
   bottom: 30px;
   right: 30px;
 }
 
-.disabled{
+.disabled {
   background-color: #aaaaaa !important;
   cursor: not-allowed !important;
 }
