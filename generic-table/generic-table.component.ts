@@ -11,6 +11,7 @@ export class GenericTableComponent {
   @Input() currentPage: number = 1;
 
   @ContentChild('rowTemplate', {static: false}) rowTemplate: TemplateRef<any> | undefined;
+  @Input() addedClass: string = '';
   protected readonly Math = Math;
 
   get paginatedData() {
