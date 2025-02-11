@@ -1,23 +1,30 @@
 import {Component, ContentChild, Input, TemplateRef} from '@angular/core';
 
+export interface Columns {
+  label: string;
+  field: string;
+}
+
 @Component({
   selector: 'app-generic-table',
   templateUrl: './generic-table.component.html',
 })
 export class GenericTableComponent {
   @Input() data: any[] = [];
-  @Input() columns: any[] = [];
+  @Input() columns: Columns[] = [];
   @Input() itemsPerPage: number = 10;
   @Input() currentPage: number = 1;
 
   @ContentChild('rowTemplate', {static: false}) rowTemplate: TemplateRef<any> | undefined;
+
   @Input() addedClass: string = '';
+
   protected readonly Math = Math;
 
   get paginatedData() {
     const start = (this.currentPage - 1) * this.itemsPerPage;
     const end = start + this.itemsPerPage;
-    return this.data.slice(start, end);
+    return this.data ? this.data.slice(start, end) : [];
   }
 
   get totalPages() {
