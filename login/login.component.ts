@@ -9,7 +9,6 @@ import {Pages} from "../../app-routing.module";
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
   @Input() styleClass: string = 'teacher';
@@ -18,6 +17,8 @@ export class LoginComponent {
     email: "",
     password: ""
   }
+  showPassword: boolean = false;
+
   isLoading = false;
   protected readonly Pages = Pages;
 
@@ -47,15 +48,7 @@ export class LoginComponent {
     }).add(() => this.isLoading = false);
   }
 
-  getEmail(email: string) {
-    if (email.trim().length > 0) {
-      this.credentials.email = email.trim().toLowerCase()
-    }
-  }
-
-  getPassword(password: string) {
-    if (password.trim().length > 5) {
-      this.credentials.password = password.trim()
-    }
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
   }
 }
