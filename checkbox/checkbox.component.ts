@@ -4,6 +4,7 @@ import {Theme} from "../theme";
 @Component({
   selector: 'app-checkbox',
   templateUrl: './checkbox.component.html',
+  standalone: false,
   styleUrls: ['./checkbox.component.css']
 })
 export class CheckboxComponent{

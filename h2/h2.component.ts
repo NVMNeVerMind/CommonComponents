@@ -4,6 +4,7 @@ import {Theme} from "../theme";
 @Component({
   selector: 'app-h2',
   templateUrl: './h2.component.html',
+  standalone: false,
   styleUrls: ['./h2.component.css']
 })
 export class H2Component {

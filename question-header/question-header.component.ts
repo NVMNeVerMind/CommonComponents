@@ -3,6 +3,7 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
 @Component({
   selector: 'app-question-header',
   templateUrl: './question-header.component.html',
+  standalone: false,
   styleUrls: ['./question-header.component.css']
 })
 export class QuestionHeaderComponent {

@@ -7,6 +7,7 @@ import {Pages} from "../../app-routing.module";
 @Component({
     selector: 'app-reset-password',
     templateUrl: './reset-password.component.html',
+  standalone: false,
     styleUrls: ['./reset-password.component.scss']
 })
 export class ResetPasswordComponent implements OnInit

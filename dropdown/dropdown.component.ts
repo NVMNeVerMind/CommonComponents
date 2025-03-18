@@ -6,6 +6,7 @@ import {SelectOption} from "../little-input/select.option";
 @Component({
   selector: 'app-dropdown',
   providers: [provideIcons({lucideChevronsUpDown, lucideSearch, lucideCheck})],
+  standalone: false,
   template: `
     <div class="flex items-start justify-between gap-4">
       <label class="text-primary-foreground font-bold">{{ label }}</label>

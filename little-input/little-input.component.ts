@@ -5,6 +5,7 @@ import {Theme} from "../theme";
 @Component({
   selector: 'app-little-input',
   templateUrl: './little-input.component.html',
+  standalone: false,
   styleUrls: ['./little-input.component.css']
 })
 export class LittleInputComponent {

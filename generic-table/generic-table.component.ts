@@ -7,6 +7,7 @@ export interface Columns {
 
 @Component({
   selector: 'app-generic-table',
+  standalone: false,
   templateUrl: './generic-table.component.html',
 })
 export class GenericTableComponent {

@@ -4,6 +4,7 @@ import {Theme} from "../theme";
 @Component({
   selector: 'app-input',
   templateUrl: './input.component.html',
+  standalone: false,
   styleUrls: ['./input.component.css']
 })
 export class InputComponent {

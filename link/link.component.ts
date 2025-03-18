@@ -3,6 +3,7 @@ import {Component, Input} from '@angular/core';
 @Component({
   selector: 'app-link',
   templateUrl: './link.component.html',
+  standalone: false,
   styleUrls: ['./link.component.scss']
 })
 export class LinkComponent {

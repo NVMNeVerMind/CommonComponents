@@ -3,6 +3,7 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
 @Component({
   selector: 'app-image-input',
   templateUrl: './image-input.component.html',
+  standalone: false,
   styleUrls: ['./image-input.component.css']
 })
 export class ImageInputComponent {

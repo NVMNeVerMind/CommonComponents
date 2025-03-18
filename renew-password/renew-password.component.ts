@@ -7,6 +7,7 @@ import {NotificationService} from "../../services/notification/notification.serv
 @Component({
     selector: 'app-renew-password',
     templateUrl: './renew-password.component.html',
+  standalone: false,
     styleUrls: ['./renew-password.component.scss']
 })
 export class RenewPasswordComponent implements OnInit {

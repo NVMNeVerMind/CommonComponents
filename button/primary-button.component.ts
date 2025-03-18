@@ -4,6 +4,7 @@ import {Theme} from "../theme";
 @Component({
   selector: 'app-button',
   templateUrl: './primary-button.component.html',
+  standalone: false,
   styleUrls: ['./primary-button.component.scss']
 })
 export class PrimaryButtonComponent {

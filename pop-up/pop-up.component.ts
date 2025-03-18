@@ -4,6 +4,7 @@ import {NotificationService} from "../../services/notification/notification.serv
 @Component({
   selector: 'app-pop-up',
   templateUrl: './pop-up.component.html',
+  standalone: false,
   styleUrls: ['./pop-up.component.scss']
 })
 export class PopUpComponent {
