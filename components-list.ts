@@ -18,6 +18,7 @@ import {ResetPasswordComponent} from "./reset-password/reset-password.component"
 import {H2Component} from "./h2/h2.component";
 import {DropdownComponent} from "./dropdown/dropdown.component";
 import {GenericTableComponent} from "./generic-table/generic-table.component";
+import {AudioInputComponent} from "./audio-input/audio-input.component";
 
 export const ComponentsList = [
   PrimaryButtonComponent,
@@ -39,5 +40,6 @@ export const ComponentsList = [
   RenewPasswordComponent,
   ResetPasswordComponent,
   DropdownComponent,
-  GenericTableComponent
+  GenericTableComponent,
+  AudioInputComponent
 ]

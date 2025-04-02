@@ -1,0 +1,9 @@
+<label [for]="id" class="custom-file-upload">
+   {{fileName ? fileNamePreview : defaultLabel}}
+</label>
+<input
+  [id]="id"
+  type="file"
+  accept=".mp3"
+  (change)="onChange($event)"
+/>
