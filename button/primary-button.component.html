@@ -1,13 +1,13 @@
-<button [disabled]="disabled" [class]="styleClass"
+<button (click)="emit()" [class.danger]="danger"
+        [class.dark]="theme === Theme.Dark"
+        [class.disabled]="disabled"
+        [class.fixed]="fixed"
+        [class.rounded]="rounded"
+        [class]="styleClass + ' cursor-pointer transition-colors duration-200 ease-in-out'"
+        [disabled]="disabled"
         [ngClass]="[
           styleClass,
-          primary ? 'primary-button' : 'secondary-button', bigButton ? 'big' : '',
-         ]"
-        [class.rounded]="rounded"
-        [class.fixed]="fixed"
-        [class.disabled]="disabled"
-        [class.dark]="theme === Theme.Dark"
-        [class.danger]="danger"
-        (click)="emit()">
-    {{ label }}
+          primary ? ' primary-button' : ' secondary-button', bigButton ? ' big' : '',
+         ]">
+  {{ label }}
 </button>
