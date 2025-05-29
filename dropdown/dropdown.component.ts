@@ -12,7 +12,8 @@ import {SelectOption} from "../little-input/select.option";
       <label class="text-primary-foreground font-bold">{{ label }}</label>
       <div class="flex flex-col items-center gap-2">
         <input (focus)="triggerDropDown()" name="search" [(ngModel)]="searchString" (keyup)="matchString()"
-               [placeholder]="label + '…'" aria-label="Example icon-button with a menu" hlmInput class="bg-white w-full"/>
+               [placeholder]="label + '…'" aria-label="Example icon-button with a menu" hlmInput
+               class="bg-white w-full"/>
         <div *ngIf="isVisible" class="bg-white w-full h-fit rounded p-2">
           <ul>
             <div (click)="changeValue(option)" *ngFor="let option of filteredOptions" hlmBtn variant="ghost"
@@ -26,19 +27,31 @@ import {SelectOption} from "../little-input/select.option";
   `,
 })
 export class DropdownComponent implements OnInit {
+  @Input() options: SelectOption[] = [];
+  @Input() label: string = 'Sélectionner';
+  @Input() defaultValue: string = '';
+  @Output() valueChange = new EventEmitter<string>();
   protected isVisible = false;
   protected searchString = '';
   protected filteredOptions: SelectOption[] = [];
-  @Input() options: SelectOption[] = [];
-  @Input() label: string = 'Sélectionner';
-  @Output() valueChange = new EventEmitter<string>();
 
   ngOnInit(): void {
     this.filteredOptions = this.options;
+    if (this.defaultValue != '') {
+      const defaultOption = this.options.find(option => option.id === this.defaultValue);
+      if (defaultOption) {
+        this.setValue(defaultOption);
+      }
+    }
   }
 
   triggerDropDown() {
     this.isVisible = !this.isVisible
+  }
+
+  changeValue(option: SelectOption) {
+    this.setValue(option);
+    this.valueChange.emit(option.id)
   }
 
   protected matchString() {
@@ -52,10 +65,5 @@ export class DropdownComponent implements OnInit {
   protected setValue(option: SelectOption) {
     this.searchString = option.value;
     this.isVisible = false;
-  }
-
-  changeValue(option: SelectOption) {
-    this.setValue(option);
-    this.valueChange.emit(option.id)
   }
 }
