@@ -4,7 +4,8 @@
     <app-button-header styleClass="teacher" value="Se connecter"></app-button-header>
   </a>
   <div *ngIf="authService.isConnected()" class="flex gap-6 items-center">
-<!--    <p class="text-white !m-0 font-semibold capitalize">{{ authService.getFullName() }}</p>-->
+    <app-changelog></app-changelog>
+    <p class="text-white !m-0 font-semibold capitalize">{{ authService.getFullName() }}</p>
     <a (click)="logout()"
        class="rounded-full p-4 bg-red-700 hover:cursor-pointer hover:opacity-70">
       <lucide-icon class="text-white w-6 h-6 " name="log-out"></lucide-icon>
