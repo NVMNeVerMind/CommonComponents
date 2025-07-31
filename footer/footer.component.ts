@@ -3,6 +3,7 @@ import {Pages} from "../../app-routing.module";
 
 @Component({
   selector: 'app-footer',
+  standalone: false,
   templateUrl: './footer.component.html',
 })
 export class FooterComponent {
