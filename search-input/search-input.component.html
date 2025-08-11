@@ -1,0 +1,14 @@
+<div class="relative flex-1 max-w-md group">
+  <lucide-icon
+    class="absolute left-2 top-1/2 -translate-y-1/2 text-gray-400 h-4 w-4 transition-colors group-focus-within:text-[#2F435A]"
+    name="search"/>
+  <input
+    [(ngModel)]="value" (keyup)="filterChangeValue()"
+    class="pl-11 pr-4 py-2.5 w-full rounded-xl border border-gray-200 bg-gray-50/50
+                     text-sm transition-all placeholder:text-gray-400
+                     hover:border-gray-300 hover:bg-gray-50
+                     focus:border-[#2F435A] focus:bg-white focus:outline-none focus:ring-4 focus:ring-[#2F435A]/10"
+    [placeholder]="placeholder"
+    type="text"
+  />
+</div>

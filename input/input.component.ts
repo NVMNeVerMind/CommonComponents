@@ -18,9 +18,9 @@ export class InputComponent {
   @Input() large: boolean = false;
 
   @Output() change = new EventEmitter<string>();
-  @Input() theme : Theme = Theme.Light;
+  @Input() theme: Theme = Theme.Light;
 
-  onChange(){
+  onChange() {
     this.change.emit(this.value)
   }
 

@@ -21,6 +21,8 @@ import {GenericTableComponent} from "./generic-table/generic-table.component";
 import {AudioInputComponent} from "./audio-input/audio-input.component";
 import {CGSComponent} from "./cgs/cgs.component";
 import {FooterComponent} from "./footer/footer.component";
+import {SmallCheckboxComponent} from "./small-checkbox/small-checkbox.component";
+import {SearchInputComponent} from "./search-input/search-input.component";
 
 export const ComponentsList = [
   PrimaryButtonComponent,
@@ -45,5 +47,7 @@ export const ComponentsList = [
   GenericTableComponent,
   AudioInputComponent,
   CGSComponent,
-  FooterComponent
+  FooterComponent,
+  SmallCheckboxComponent,
+  SearchInputComponent
 ]
