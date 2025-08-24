@@ -35,7 +35,7 @@ export class PopUpCgsComponent {
       next: data => {
         this.acceptCGSFormGroup = this.emptyFormCGS();
         this.authService.setIsCgsAccepted();
-        this.router.navigate(['/' + Pages.createExam]);
+        this.router.navigate(['/' + Pages.home]);
       }, error: error => {
         this.notificationService.notify('Une erreur est survenue', true);
       }
