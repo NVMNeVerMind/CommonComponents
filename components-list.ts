@@ -23,6 +23,7 @@ import {CGSComponent} from "./cgs/cgs.component";
 import {FooterComponent} from "./footer/footer.component";
 import {SmallCheckboxComponent} from "./small-checkbox/small-checkbox.component";
 import {SearchInputComponent} from "./search-input/search-input.component";
+import {PopUpCgsComponent} from "./pop-up-cgs/pop-up-cgs.component";
 
 export const ComponentsList = [
   PrimaryButtonComponent,
@@ -49,5 +50,6 @@ export const ComponentsList = [
   CGSComponent,
   FooterComponent,
   SmallCheckboxComponent,
-  SearchInputComponent
+  SearchInputComponent,
+  PopUpCgsComponent
 ]

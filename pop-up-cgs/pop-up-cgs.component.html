@@ -1,0 +1,40 @@
+<div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+  <div class="bg-white rounded-lg shadow-xl max-w-md w-full mx-4 p-6">
+    <div class="text-center mb-6">
+      <h2 class="text-xl font-semibold text-gray-800 mb-4">
+        Conditions Générales de service (CGS)
+      </h2>
+      <p class="text-gray-600 mb-4">
+        Veuillez lire et accepter nos Conditions Générales de Service avant de continuer.
+      </p>
+      <a
+        [href]="'/' + Pages.cgs"
+        class="text-blue-600 hover:text-blue-800 underline text-sm"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        Lire les CGS complètes
+      </a>
+    </div>
+    <form [formGroup]="acceptCGSFormGroup">
+      <label for="acceptCGS">J'accepte les CGS </label>
+      <input formControlName="accept" id="acceptCGS" type="checkbox">
+    </form>
+    <div class="flex gap-3 justify-center">
+
+      <button
+        (click)="reject()"
+        class="px-6 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors font-medium hover:cursor-pointer"
+      >
+        Reject
+      </button>
+      <button
+        (click)="accept()"
+        [disabled]="this.acceptCGSFormGroup.invalid"
+        class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium hover:cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+      >
+        Accept
+      </button>
+    </div>
+  </div>
+</div>
