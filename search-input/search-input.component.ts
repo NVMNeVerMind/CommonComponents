@@ -13,7 +13,6 @@ export class SearchInputComponent {
   protected value: string = '';
 
   filterChangeValue() {
-    console.log(this.value);
     this.change.emit(this.value);
   }
 
