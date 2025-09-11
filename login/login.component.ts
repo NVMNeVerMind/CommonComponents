@@ -37,9 +37,9 @@ export class LoginComponent {
     }
     this.isLoading = true;
     this.authService.login(this.credentials).subscribe({
-      next: (user: User) => {
+      next: async (user: User) => {
         if (user) {
-          this.authService.saveUser(user)
+          await this.authService.saveUser(user)
           this.router.navigate(['/', Pages.home])
         }
       },
