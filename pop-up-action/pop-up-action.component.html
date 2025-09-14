@@ -1,0 +1,23 @@
+<hlm-dialog>
+  <button *ngIf="iconName"
+          brnDialogTrigger
+          class="editButton flex items-center justify-center bg-red-600 w-10 h-10 border-none rounded-xl font-bold text-xs text-[#FFF2E9] cursor-pointer hover:bg-red-500">
+    <lucide-icon *ngIf="iconName" [name]="iconName"></lucide-icon>
+  </button>
+  <button *ngIf="title" brnDialogTrigger
+          class="bg-[#b20000] hover:bg-[#b20000] min-w-[150px] h-[50px] border-none rounded-[10px] font-bold text-[16px] text-white"
+          hlmBtn>
+    {{ title }}
+  </button>
+  <hlm-dialog-content *brnDialogContent="let ctx">
+    <hlm-dialog-header>
+      <h2 brnDialogTitle hlm>{{ title }}</h2>
+      <p brnDialogDescription hlm>{{ description }} </p>
+    </hlm-dialog-header>
+
+    <hlm-dialog-footer>
+      <button (click)="yes()" brnDialogClose class="!bg-[#b20000]" hlmBtn>Valider</button>
+      <button (click)="no()" brnDialogClose hlmBtn>Refuser</button>
+    </hlm-dialog-footer>
+  </hlm-dialog-content>
+</hlm-dialog>
