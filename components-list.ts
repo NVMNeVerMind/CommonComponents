@@ -24,6 +24,7 @@ import {FooterComponent} from "./footer/footer.component";
 import {SmallCheckboxComponent} from "./small-checkbox/small-checkbox.component";
 import {SearchInputComponent} from "./search-input/search-input.component";
 import {PopUpCgsComponent} from "./pop-up-cgs/pop-up-cgs.component";
+import {PopUpActionComponent} from "./pop-up-action/pop-up-action.component";
 
 export const ComponentsList = [
   PrimaryButtonComponent,
@@ -51,5 +52,6 @@ export const ComponentsList = [
   FooterComponent,
   SmallCheckboxComponent,
   SearchInputComponent,
-  PopUpCgsComponent
+  PopUpCgsComponent,
+  PopUpActionComponent
 ]
