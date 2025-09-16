@@ -2,6 +2,7 @@ import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-pop-up-action',
+  standalone: false,
   templateUrl: './pop-up-action.component.html',
 })
 export class PopUpActionComponent {
