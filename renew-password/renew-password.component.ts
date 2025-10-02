@@ -18,6 +18,9 @@ export class RenewPasswordComponent implements OnInit {
 
     password: string = '';
     confirmPassword: string = '';
+    protected isLoading: boolean = false;
+    protected showPassword: boolean = false;
+    protected showConfirmPassword: boolean = false;
 
     constructor(
         private readonly route: ActivatedRoute,
@@ -37,18 +40,6 @@ export class RenewPasswordComponent implements OnInit {
         });
     }
 
-    getPassword(password: string) {
-        if (password.trim().length > 0) {
-            this.password = password.trim()
-        }
-    }
-
-    getConfirmPassword(confirmPassword: string) {
-        if (confirmPassword.trim().length > 5) {
-            this.confirmPassword = confirmPassword.trim()
-        }
-    }
-
     private verifyPassword() {
         if (this.password.trim().length <= 5 && this.confirmPassword.trim().length <= 5) {
             this.notificationService.notify('Veuillez entrer un mot de passe de plus de 5 caractères', true);
@@ -63,6 +54,7 @@ export class RenewPasswordComponent implements OnInit {
 
     renew() {
         if (this.verifyPassword()) {
+            this.isLoading = true;
             this.authService.renewPassword(this.schoolId, this.token, {password: this.password}).subscribe({
                 next: (renewed) => {
                     if (renewed) {
@@ -74,8 +66,17 @@ export class RenewPasswordComponent implements OnInit {
                 },
                 error: (error => {
                     this.notificationService.notify(error.error.message, true)
+                    this.isLoading = false;
                 }),
             });
         }
+    }
+
+    togglePasswordVisibility() {
+        this.showPassword = !this.showPassword;
+    }
+
+    toggleConfirmPasswordVisibility() {
+        this.showConfirmPassword = !this.showConfirmPassword;
     }
 }

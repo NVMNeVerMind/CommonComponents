@@ -7,11 +7,10 @@ import {Pages} from "../../app-routing.module";
 @Component({
     selector: 'app-reset-password',
     templateUrl: './reset-password.component.html',
-  standalone: false,
+    standalone: false,
     styleUrls: ['./reset-password.component.scss']
 })
-export class ResetPasswordComponent implements OnInit
-{
+export class ResetPasswordComponent implements OnInit {
     @Input() styleClass: string = 'teacher';
 
     constructor(
@@ -23,18 +22,14 @@ export class ResetPasswordComponent implements OnInit
     ngOnInit(): void {
     }
 
-    email: string = '';
-
-    getEmail(email: string) {
-        if (email.trim().length > 0) {
-            this.email = email.trim().toLowerCase()
-        }
-    }
+    protected email: string = '';
+    protected isLoading: boolean = false;
 
     reset() {
         if (this.email.trim().length == 0) {
             this.notificationService.notify('Veuillez entrer un email valide', true);
         }
+        this.isLoading = true;
         this.authService.resetPassword(this.email).subscribe({
             next: (_) => {
                 this.notificationService.notify('Un email de réinitialisation de mot de passe vous a été envoyé');
@@ -42,6 +37,7 @@ export class ResetPasswordComponent implements OnInit
             },
             error: (err) => {
                 this.notificationService.notify(err.error.message, true);
+                this.isLoading = false;
             }
         });
     }
