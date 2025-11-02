@@ -16,8 +16,8 @@
     </hlm-dialog-header>
 
     <hlm-dialog-footer>
-      <button (click)="yes()" brnDialogClose class="!bg-[#b20000]" hlmBtn>Valider</button>
-      <button (click)="no()" brnDialogClose hlmBtn>Refuser</button>
+      <button (click)="yes()" brnDialogClose class="!bg-[#b20000]" hlmBtn>{{ accept }}</button>
+      <button (click)="no()" brnDialogClose hlmBtn>{{ refuse }}</button>
     </hlm-dialog-footer>
   </hlm-dialog-content>
 </hlm-dialog>
