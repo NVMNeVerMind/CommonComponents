@@ -2,14 +2,14 @@
   <div class="bg-white rounded-lg shadow-xl max-w-md w-full mx-4 p-6">
     <div class="text-center mb-6">
       <h2 class="text-xl font-semibold text-gray-800 mb-4">
-        Conditions Générales de service (CGS)
+        Conditions Générales de Service (CGS)
       </h2>
       <p class="text-gray-600 mb-4">
         Veuillez lire et accepter nos Conditions Générales de Service avant de continuer.
       </p>
       <a
         [href]="'/' + Pages.cgs"
-        class="text-blue-600 hover:text-blue-800 underline text-sm"
+        class="text-[#2F435A] hover:text-blue-800 underline text-sm"
         rel="noopener noreferrer"
       >
         Lire les CGS complètes
@@ -25,14 +25,14 @@
         (click)="reject()"
         class="px-6 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors font-medium hover:cursor-pointer"
       >
-        Reject
+        Refuser
       </button>
       <button
         (click)="accept()"
         [disabled]="this.acceptCGSFormGroup.invalid"
-        class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium hover:cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+        class="px-6 py-2 bg-[#2F435A] text-white rounded-lg hover:bg-[#2F435A] transition-colors font-medium hover:cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
       >
-        Accept
+        Accepter
       </button>
     </div>
   </div>
