@@ -1,0 +1,24 @@
+table {
+  table-layout: auto;
+
+  th, td {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+
+  th {
+    min-width: 100px;
+  }
+
+  td {
+    min-width: 80px;
+  }
+}
+
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+

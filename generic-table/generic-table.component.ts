@@ -7,8 +7,9 @@ export interface Columns {
 
 @Component({
   selector: 'app-generic-table',
-  standalone:false,
+  standalone: false,
   templateUrl: './generic-table.component.html',
+  styleUrls: ['./generic-table.component.scss']
 })
 export class GenericTableComponent {
   @Input() data: any[] = [];
