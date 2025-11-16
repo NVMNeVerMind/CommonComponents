@@ -53,5 +53,5 @@ export const ComponentsList = [
   SmallCheckboxComponent,
   SearchInputComponent,
   PopUpCgsComponent,
-  PopUpActionComponent
+  PopUpActionComponent,
 ]

@@ -1,9 +1,10 @@
-<div [ngClass]="addedClass" class="bg-white rounded-t-lg shadow">
-  <div class="hidden md:block">
-    <table class="w-full text-left table-fixed">
+<div [ngClass]="addedClass" class="bg-white rounded-t-lg shadow overflow-hidden">
+  <div class="hidden md:block overflow-x-auto">
+    <table class="w-full text-left table-auto min-w-full">
       <thead>
       <tr class="border-b text-left">
-        <th *ngFor="let column of columns" class="text-left py-4 px-6 text-sm font-semibold text-gray-600">
+        <th *ngFor="let column of columns"
+            class="text-left py-4 px-6 text-sm font-semibold text-gray-600 whitespace-nowrap">
           {{ column.label }}
         </th>
       </tr>
@@ -23,7 +24,7 @@
   <span class="text-sm text-gray-600 order-2 sm:order-1">
     {{ (currentPage - 1) * itemsPerPage + 1 }}
     – {{ Math.min(currentPage * itemsPerPage, total ? total : data ? data.length : 0) }}
-    of {{ total ? total : data ? data.length : 0 }}
+    sur {{ total ? total : data ? data.length : 0 }}
   </span>
     <div class="flex items-center gap-4 order-1 sm:order-2 w-full sm:w-auto justify-between sm:justify-end">
       <div class="flex items-center gap-2">
