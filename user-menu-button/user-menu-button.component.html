@@ -1,0 +1,21 @@
+<div class="relative">
+  <div *ngIf="isMenuOpen" class="absolute bottom-full left-0 right-0 mb-2 bg-white rounded-lg shadow-lg overflow-hidden">
+    <button
+      (click)="onLogout()"
+      class="flex items-center gap-3 w-full px-4 py-3 text-gray-700 hover:bg-gray-100 transition-colors">
+      <lucide-icon class="w-5 h-5 text-red-600" name="log-out"/>
+      <span class="text-red-600">Déconnexion</span>
+    </button>
+  </div>
+
+  <button
+    (click)="onToggleMenu()"
+    class="flex items-center gap-3 w-full p-3 bg-[#39918C] hover:bg-[#2d7571] rounded-xl transition-colors">
+    <div class="bg-[#2d7571] rounded-full flex justify-center items-center w-10 h-10 text-white font-semibold text-sm">
+      {{ getUserInitials() }}
+    </div>
+    <span class="text-white font-semibold text-sm flex-1 text-left truncate">{{ fullName }}</span>
+    <lucide-icon class="w-5 h-5 text-white" [name]="isMenuOpen ? 'chevron-down' : 'chevron-up'"/>
+  </button>
+</div>
+

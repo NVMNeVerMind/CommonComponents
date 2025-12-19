@@ -26,6 +26,7 @@ import {SearchInputComponent} from "./search-input/search-input.component";
 import {PopUpCgsComponent} from "./pop-up-cgs/pop-up-cgs.component";
 import {PopUpActionComponent} from "./pop-up-action/pop-up-action.component";
 import {SwitchComponent} from "./switch/switch.component";
+import {UserMenuButtonComponent} from "./user-menu-button/user-menu-button.component";
 
 export const ComponentsList = [
     PrimaryButtonComponent,
@@ -55,5 +56,6 @@ export const ComponentsList = [
     SearchInputComponent,
     PopUpCgsComponent,
     PopUpActionComponent,
-    SwitchComponent
+    SwitchComponent,
+    UserMenuButtonComponent
 ]
