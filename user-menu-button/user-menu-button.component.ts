@@ -1,4 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-user-menu-button',
@@ -11,6 +12,8 @@ export class UserMenuButtonComponent {
   @Output() toggleMenu: EventEmitter<void> = new EventEmitter<void>();
   @Output() logoutClicked: EventEmitter<void> = new EventEmitter<void>();
 
+  constructor(private readonly router: Router) {}
+
   getUserInitials(): string {
     if (!this.fullName) return '';
     const parts = this.fullName.trim().split(' ');
@@ -22,6 +25,11 @@ export class UserMenuButtonComponent {
 
   onToggleMenu() {
     this.toggleMenu.emit();
+  }
+
+  onProfile() {
+    this.toggleMenu.emit();
+    this.router.navigate(['/profile']);
   }
 
   onLogout() {
