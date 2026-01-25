@@ -3,6 +3,7 @@ import {Component, ContentChild, EventEmitter, Input, Output, TemplateRef} from 
 export interface Columns {
   label: string;
   field: string;
+  isCenter?: boolean;
 }
 
 @Component({

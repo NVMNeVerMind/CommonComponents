@@ -36,17 +36,21 @@ export class LoginComponent {
       return
     }
     this.isLoading = true;
-    this.authService.login(this.credentials).subscribe({
-      next: async (user: User) => {
-        if (user) {
-          await this.authService.saveUser(user)
-          this.router.navigate(['/', Pages.home])
+    try {
+      this.authService.login(this.credentials).subscribe({
+        next: async (user: User) => {
+          if (user) {
+            this.authService.saveUser(user)
+            this.router.navigate(['/', Pages.home])
+          }
+        },
+        error: (_) => {
+          this.notification.notify('Identifiants incorrects', true);
         }
-      },
-      error: (_) => {
-        this.notification.notify('Identifiants incorrects', true);
-      }
-    }).add(() => this.isLoading = false);
+      }).add(() => this.isLoading = false);
+    } catch (error) {
+        this.notification.notify('Une erreur est survenue lors de la connexion', true);
+    }
   }
 
   togglePasswordVisibility() {
