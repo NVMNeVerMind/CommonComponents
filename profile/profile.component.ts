@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {AuthService} from "../../services/auth/auth.service";
 import {Router} from "@angular/router";
 
@@ -27,6 +27,7 @@ export class ProfileComponent implements OnInit {
   constructor(
     private readonly authService: AuthService,
     private readonly router: Router,
+    private readonly cdr: ChangeDetectorRef,
   ) {}
 
   ngOnInit() {
@@ -97,6 +98,7 @@ export class ProfileComponent implements OnInit {
         this.currentPassword = '';
         this.newPassword = '';
         this.confirmPassword = '';
+        this.cdr.detectChanges();
       },
       error: (error: { status: number }) => {
         this.isLoading = false;
@@ -105,6 +107,7 @@ export class ProfileComponent implements OnInit {
         } else {
           this.errorMessage = 'Une erreur est survenue. Veuillez réessayer.';
         }
+        this.cdr.detectChanges();
       }
     });
   }

@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {ChangeDetectorRef, Component, Input} from '@angular/core';
 import {Pages} from "../../app-routing.module";
 import {AuthService} from "../../services/auth/auth.service";
 import {Router} from "@angular/router";
@@ -14,7 +14,8 @@ export class HeaderComponent {
 
   constructor(
     protected readonly authService: AuthService,
-    private readonly router: Router
+    private readonly router: Router,
+    private readonly cdr: ChangeDetectorRef,
   ) {
   }
 
@@ -24,9 +25,11 @@ export class HeaderComponent {
     this.authService.disconnect().subscribe({
       next: () => {
         this.authService.logout()
+        this.cdr.detectChanges();
       },
       error: () => {
         this.authService.logout()
+        this.cdr.detectChanges();
       }
     })
   }

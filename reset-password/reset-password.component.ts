@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, Input, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {AuthService} from "../../services/auth/auth.service";
 import {NotificationService} from "../../services/notification/notification.service";
@@ -16,7 +16,9 @@ export class ResetPasswordComponent implements OnInit {
     constructor(
         private readonly router: Router,
         private readonly authService: AuthService,
-        private readonly notificationService: NotificationService) {
+        private readonly notificationService: NotificationService,
+        private readonly cdr: ChangeDetectorRef,
+    ) {
     }
 
     ngOnInit(): void {
@@ -34,10 +36,12 @@ export class ResetPasswordComponent implements OnInit {
             next: (_) => {
                 this.notificationService.notify('Un email de réinitialisation de mot de passe vous a été envoyé');
                 this.router.navigate(['/' + Pages.landing])
+                this.cdr.detectChanges();
             },
             error: (err) => {
                 this.notificationService.notify(err.error.message, true);
                 this.isLoading = false;
+                this.cdr.detectChanges();
             }
         });
     }

@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, Input, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {Pages} from "../../app-routing.module";
 import {AuthService} from "../../services/auth/auth.service";
@@ -26,7 +26,9 @@ export class RenewPasswordComponent implements OnInit {
         private readonly route: ActivatedRoute,
         private readonly router: Router,
         private readonly authService: AuthService,
-        private readonly notificationService: NotificationService) {
+        private readonly notificationService: NotificationService,
+        private readonly cdr: ChangeDetectorRef,
+    ) {
     }
 
     ngOnInit() {
@@ -63,10 +65,12 @@ export class RenewPasswordComponent implements OnInit {
                     } else {
                         this.notificationService.notify('Impossible de modifier votre mot de passe avec le lien fourni', true)
                     }
+                    this.cdr.detectChanges();
                 },
                 error: (error => {
                     this.notificationService.notify(error.error.message, true)
                     this.isLoading = false;
+                    this.cdr.detectChanges();
                 }),
             });
         }
