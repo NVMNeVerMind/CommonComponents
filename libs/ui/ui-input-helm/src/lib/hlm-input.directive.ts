@@ -1,9 +1,5 @@
-import {computed, Directive, type DoCheck, effect, inject, Injector, input, signal} from '@angular/core';
-import {FormGroupDirective, NgControl, NgForm} from '@angular/forms';
+import {computed, Directive, input} from '@angular/core';
 import { hlm } from '@spartan-ng/ui-core';
-import {BrnFormFieldControl} from '@spartan-ng/brain/form-field';
-import {ErrorStateMatcher, ErrorStateTracker} from '@spartan-ng/brain/forms';
-
 import {cva, type VariantProps} from 'class-variance-authority';
 import type {ClassValue} from 'clsx';
 
@@ -35,62 +31,13 @@ type InputVariants = VariantProps<typeof inputVariants>;
 	host: {
 		'[class]': '_computedClass()',
 	},
-	providers: [
-		{
-			provide: BrnFormFieldControl,
-			useExisting: HlmInputDirective,
-		},
-	],
 })
-export class HlmInputDirective implements BrnFormFieldControl, DoCheck {
+export class HlmInputDirective {
 	public readonly size = input<InputVariants['size']>('default');
-
 	public readonly error = input<InputVariants['error']>('auto');
-
-	protected readonly state = computed(() => ({
-		error: signal(this.error()),
-	}));
-
 	public readonly userClass = input<ClassValue>('', { alias: 'class' });
-	protected readonly _computedClass = computed(() =>
-		hlm(inputVariants({ size: this.size(), error: this.state().error() }), this.userClass()),
+
+	protected _computedClass = computed(() =>
+		hlm(inputVariants({ size: this.size(), error: this.error() }), this.userClass()),
 	);
-
-	private readonly _injector = inject(Injector);
-
-	public readonly ngControl: NgControl | null = this._injector.get(NgControl, null);
-
-	private readonly _errorStateTracker: ErrorStateTracker;
-
-	private readonly _defaultErrorStateMatcher = inject(ErrorStateMatcher);
-	private readonly _parentForm = inject(NgForm, { optional: true });
-	private readonly _parentFormGroup = inject(FormGroupDirective, { optional: true });
-
-	public readonly errorState = computed(() => this._errorStateTracker.errorState());
-
-	constructor() {
-		this._errorStateTracker = new ErrorStateTracker(
-			this._defaultErrorStateMatcher,
-			this.ngControl,
-			this._parentFormGroup,
-			this._parentForm,
-		);
-
-		effect(
-			() => {
-				if (this.ngControl) {
-					this.setError(this._errorStateTracker.errorState());
-				}
-			},
-			{ allowSignalWrites: true },
-		);
-	}
-
-	ngDoCheck() {
-		this._errorStateTracker.updateErrorState();
-	}
-
-	setError(error: InputVariants['error']) {
-		this.state().error.set(error);
-	}
 }
