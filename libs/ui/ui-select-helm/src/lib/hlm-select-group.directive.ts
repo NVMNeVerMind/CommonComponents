@@ -1,11 +1,11 @@
 import {computed, Directive, input} from '@angular/core';
 import { hlm } from '@spartan-ng/ui-core';
-import {BrnSelectGroupDirective} from '@spartan-ng/brain/select';
+import {BrnSelectGroup} from '@spartan-ng/brain/select';
 import type {ClassValue} from 'clsx';
 
 @Directive({
 	selector: '[hlmSelectGroup], hlm-select-group',
-	hostDirectives: [BrnSelectGroupDirective],
+	hostDirectives: [BrnSelectGroup],
 	standalone: true,
 	host: {
 		'[class]': '_computedClass()',

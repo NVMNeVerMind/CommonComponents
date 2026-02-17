@@ -4,7 +4,7 @@ import {
     type BrnDialogOptions,
     BrnDialogService,
     cssClassesToArray,
-    DEFAULT_BRN_DIALOG_OPTIONS,
+    defaultOptions,
 } from '@spartan-ng/brain/dialog';
 import {HlmDialogContentComponent} from './hlm-dialog-content.component';
 import {hlmDialogOverlayClass} from './hlm-dialog-overlay.directive';
@@ -23,7 +23,7 @@ export class HlmDialogService {
 
 	public open(component: ComponentType<unknown> | TemplateRef<unknown>, options?: Partial<HlmDialogOptions>) {
 		const mergedOptions = {
-			...DEFAULT_BRN_DIALOG_OPTIONS,
+			...defaultOptions,
 			closeDelay: 100,
 
 			...(options ?? {}),

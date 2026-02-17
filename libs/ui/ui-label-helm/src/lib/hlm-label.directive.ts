@@ -1,6 +1,6 @@
 import {computed, Directive, inject, input, signal} from '@angular/core';
 import { hlm } from '@spartan-ng/ui-core';
-import {BrnLabelDirective} from '@spartan-ng/brain/label';
+import {BrnLabel} from '@spartan-ng/brain/label';
 import {cva, type VariantProps} from 'class-variance-authority';
 import type {ClassValue} from 'clsx';
 
@@ -34,7 +34,7 @@ export type LabelVariants = VariantProps<typeof labelVariants>;
 	standalone: true,
 	hostDirectives: [
 		{
-			directive: BrnLabelDirective,
+			directive: BrnLabel,
 			inputs: ['id'],
 		},
 	],
@@ -43,7 +43,7 @@ export type LabelVariants = VariantProps<typeof labelVariants>;
 	},
 })
 export class HlmLabelDirective {
-	private readonly _brn = inject(BrnLabelDirective, { host: true });
+	private readonly _brn = inject(BrnLabel, { host: true });
 
 	public readonly userClass = input<ClassValue>('', { alias: 'class' });
 

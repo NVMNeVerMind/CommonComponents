@@ -2,7 +2,7 @@ import {ChangeDetectionStrategy, Component, computed, inject, input} from '@angu
 import {NgIcon, provideIcons} from '@ng-icons/core';
 import {lucideCheck} from '@ng-icons/lucide';
 import { hlm } from '@spartan-ng/ui-core';
-import {BrnSelectOptionDirective} from '@spartan-ng/brain/select';
+import {BrnSelectOption} from '@spartan-ng/brain/select';
 import {HlmIconDirective} from '../../../ui-icon-helm/src';
 import type {ClassValue} from 'clsx';
 
@@ -10,7 +10,7 @@ import type {ClassValue} from 'clsx';
   selector: 'hlm-option',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  hostDirectives: [{directive: BrnSelectOptionDirective, inputs: ['disabled', 'value']}],
+  hostDirectives: [{directive: BrnSelectOption, inputs: ['disabled', 'value']}],
   providers: [provideIcons({lucideCheck})],
   host: {
     '[class]': '_computedClass()',
@@ -31,7 +31,7 @@ import type {ClassValue} from 'clsx';
 })
 export class HlmSelectOptionComponent {
   public readonly userClass = input<ClassValue>('', {alias: 'class'});
-  protected readonly _brnSelectOption = inject(BrnSelectOptionDirective, {host: true});
+  protected readonly _brnSelectOption = inject(BrnSelectOption, {host: true});
   protected readonly _computedClass = computed(() =>
     hlm(
       'relative flex w-full cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2  rtl:flex-reverse rtl:pr-8 rtl:pl-2 text-sm outline-none focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50',

@@ -2,7 +2,7 @@ import {Component, computed, contentChild, inject, input} from '@angular/core';
 import {NgIcon, provideIcons} from '@ng-icons/core';
 import {lucideChevronDown} from '@ng-icons/lucide';
 import { hlm } from '@spartan-ng/ui-core';
-import {BrnSelectComponent, BrnSelectTriggerDirective} from '@spartan-ng/brain/select';
+import {BrnSelect, BrnSelectTrigger} from '@spartan-ng/brain/select';
 import {HlmIconDirective} from '../../../ui-icon-helm/src';
 import {cva, type VariantProps} from 'class-variance-authority';
 import type {ClassValue} from 'clsx';
@@ -32,7 +32,7 @@ type SelectTriggerVariants = VariantProps<typeof selectTriggerVariants>;
 @Component({
 	selector: 'hlm-select-trigger',
 	standalone: true,
-	imports: [BrnSelectTriggerDirective, NgIcon, HlmIconDirective],
+	imports: [BrnSelectTrigger, NgIcon, HlmIconDirective],
 	providers: [provideIcons({ lucideChevronDown })],
 
 	template: `
@@ -49,7 +49,7 @@ type SelectTriggerVariants = VariantProps<typeof selectTriggerVariants>;
 export class HlmSelectTriggerComponent {
 	protected readonly icon = contentChild(HlmIconDirective);
 
-	protected readonly brnSelect = inject(BrnSelectComponent, { optional: true });
+	protected readonly brnSelect = inject(BrnSelect, { optional: true });
 
 	public readonly _size = input<SelectTriggerVariants['size']>('default');
 	public readonly userClass = input<ClassValue>('', { alias: 'class' });

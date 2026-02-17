@@ -1,12 +1,12 @@
 import { Directive, computed, input } from '@angular/core';
 import { hlm } from '@spartan-ng/ui-core';
-import { BrnTabsTriggerDirective } from '@spartan-ng/brain/tabs';
+import { BrnTabsTrigger } from '@spartan-ng/brain/tabs';
 import type { ClassValue } from 'clsx';
 
 @Directive({
 	selector: '[hlmTabsTrigger]',
 	standalone: true,
-	hostDirectives: [{ directive: BrnTabsTriggerDirective, inputs: ['brnTabsTrigger: hlmTabsTrigger', 'disabled'] }],
+	hostDirectives: [{ directive: BrnTabsTrigger, inputs: ['brnTabsTrigger: hlmTabsTrigger', 'disabled'] }],
 	host: {
 		'[class]': '_computedClass()',
 	},

@@ -1,12 +1,12 @@
 import {computed, Directive, inject, input} from '@angular/core';
 import { hlm } from '@spartan-ng/ui-core';
-import {BrnSelectLabelDirective} from '@spartan-ng/brain/select';
+import {BrnSelectLabel} from '@spartan-ng/brain/select';
 import type {ClassValue} from 'clsx';
 import {HlmSelectContentDirective} from './hlm-select-content.directive';
 
 @Directive({
 	selector: '[hlmSelectLabel], hlm-select-label',
-	hostDirectives: [BrnSelectLabelDirective],
+	hostDirectives: [BrnSelectLabel],
 	standalone: true,
 	host: {
 		'[class]': '_computedClass()',

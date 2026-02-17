@@ -1,6 +1,6 @@
 import {computed, Directive, input} from '@angular/core';
 import { hlm } from '@spartan-ng/ui-core';
-import {BrnSheetDescriptionDirective} from '@spartan-ng/brain/sheet';
+import {BrnSheetDescription} from '@spartan-ng/brain/sheet';
 import type {ClassValue} from 'clsx';
 
 @Directive({
@@ -9,7 +9,7 @@ import type {ClassValue} from 'clsx';
 	host: {
 		'[class]': '_computedClass()',
 	},
-	hostDirectives: [BrnSheetDescriptionDirective],
+	hostDirectives: [BrnSheetDescription],
 })
 export class HlmSheetDescriptionDirective {
 	public readonly userClass = input<ClassValue>('', { alias: 'class' });

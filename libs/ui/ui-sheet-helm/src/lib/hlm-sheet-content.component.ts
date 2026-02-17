@@ -2,7 +2,7 @@ import {Component, computed, effect, ElementRef, inject, input, Renderer2, signa
 import {NgIcon, provideIcons} from '@ng-icons/core';
 import {lucideX} from '@ng-icons/lucide';
 import { hlm, injectExposesStateProvider, injectExposedSideProvider } from '@spartan-ng/ui-core';
-import {BrnSheetCloseDirective} from '@spartan-ng/brain/sheet';
+import {BrnSheetClose} from '@spartan-ng/brain/sheet';
 import {HlmIconDirective} from '../../../ui-icon-helm/src';
 import {cva} from 'class-variance-authority';
 import type {ClassValue} from 'clsx';
@@ -30,7 +30,7 @@ export const sheetVariants = cva(
 @Component({
 	selector: 'hlm-sheet-content',
 	standalone: true,
-	imports: [HlmSheetCloseDirective, BrnSheetCloseDirective, NgIcon, HlmIconDirective],
+	imports: [HlmSheetCloseDirective, BrnSheetClose, NgIcon, HlmIconDirective],
 	providers: [provideIcons({ lucideX })],
 	host: {
 		'[class]': '_computedClass()',

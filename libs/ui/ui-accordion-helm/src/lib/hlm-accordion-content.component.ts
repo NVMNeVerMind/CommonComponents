@@ -1,13 +1,13 @@
-import {ChangeDetectionStrategy, Component, computed, effect, input, ViewEncapsulation} from '@angular/core';
-import {BrnAccordionContentComponent} from '@spartan-ng/brain/accordion';
-import { hlm } from '@spartan-ng/ui-core';
+import {ChangeDetectionStrategy, Component, computed, input, ViewEncapsulation} from '@angular/core';
+import {BrnAccordionContent} from '@spartan-ng/brain/accordion';
+import {hlm} from '@spartan-ng/ui-core';
 import type {ClassValue} from 'clsx';
 
 @Component({
 	selector: 'hlm-accordion-content',
 	template: `
-		<div [attr.inert]="_addInert()" style="overflow: hidden">
-			<p [class]="_contentClass()">
+		<div [attr.inert]="_inert()" style="overflow: hidden">
+			<p class="pt-1 pb-4">
 				<ng-content />
 			</p>
 		</div>
@@ -19,20 +19,10 @@ import type {ClassValue} from 'clsx';
 		'[class]': '_computedClass()',
 	},
 })
-export class HlmAccordionContentComponent extends BrnAccordionContentComponent {
+export class HlmAccordionContentComponent extends BrnAccordionContent {
 	public readonly userClass = input<ClassValue>('', { alias: 'class' });
 	protected readonly _computedClass = computed(() => {
 		const gridRows = this.state() === 'open' ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]';
 		return hlm('text-sm transition-all grid', gridRows, this.userClass());
 	});
-
-	constructor() {
-		super();
-		effect(
-			() => {
-				this.setClassToCustomElement('pt-1 pb-4');
-			},
-			{ allowSignalWrites: true },
-		);
-	}
 }
