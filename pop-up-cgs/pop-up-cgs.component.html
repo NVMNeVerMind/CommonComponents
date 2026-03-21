@@ -9,7 +9,7 @@
       </p>
       <a
         [href]="'/' + Pages.cgs"
-        class="text-[#2F435A] hover:text-blue-800 underline text-sm"
+        class="text-primary hover:text-primary/80 underline text-sm"
         rel="noopener noreferrer"
       >
         Lire les CGS complètes
@@ -17,7 +17,7 @@
     </div>
     <form [formGroup]="acceptCGSFormGroup">
       <label for="acceptCGS">J'accepte les CGS </label>
-      <input formControlName="accept" id="acceptCGS" type="checkbox">
+      <input formControlName="accept" id="acceptCGS" type="checkbox" class="h-4 w-4 accent-primary focus:ring-primary border-gray-300 rounded">
     </form>
     <div class="flex gap-3 justify-center">
 
@@ -30,7 +30,7 @@
       <button
         (click)="accept()"
         [disabled]="this.acceptCGSFormGroup.invalid"
-        class="px-6 py-2 bg-[#2F435A] text-white rounded-lg hover:bg-[#2F435A] transition-colors font-medium hover:cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+        class="px-6 py-2 bg-primary text-white rounded-lg hover:bg-primary/80 transition-colors font-medium hover:cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
       >
         Accepter
       </button>

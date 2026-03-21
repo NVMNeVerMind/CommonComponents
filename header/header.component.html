@@ -5,7 +5,7 @@
   </a>
   <div *ngIf="authService.isConnected()" class="flex gap-6 items-center">
     <a (click)="logout()"
-       class="rounded-full p-4 bg-red-700 hover:cursor-pointer hover:opacity-70">
+       class="rounded-full p-4 bg-destructive hover:cursor-pointer hover:opacity-70">
       <lucide-icon class="text-white w-6 h-6 " name="log-out"></lucide-icon>
     </a>
   </div>
