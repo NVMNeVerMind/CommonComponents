@@ -3,23 +3,22 @@ import {BrnDialog, BrnDialogOverlay, provideBrnDialogDefaultOptions} from '@spar
 import {HlmDialogOverlayDirective} from './hlm-dialog-overlay.directive';
 
 @Component({
-	selector: 'hlm-dialog',
-	standalone: true,
-  imports: [BrnDialogOverlay, HlmDialogOverlayDirective],
-	providers: [
-		{
-			provide: BrnDialog,
-			useExisting: forwardRef(() => HlmDialogComponent),
-		},
-		provideBrnDialogDefaultOptions({closeDelay: 100}),
-	],
-	template: `
+    selector: 'hlm-dialog',
+    imports: [BrnDialogOverlay, HlmDialogOverlayDirective],
+    providers: [
+        {
+            provide: BrnDialog,
+            useExisting: forwardRef(() => HlmDialogComponent),
+        },
+        provideBrnDialogDefaultOptions({closeDelay: 100}),
+    ],
+    template: `
 		<brn-dialog-overlay hlm />
 		<ng-content />
 	`,
-	changeDetection: ChangeDetectionStrategy.OnPush,
-	encapsulation: ViewEncapsulation.None,
-	exportAs: 'hlmDialog',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    encapsulation: ViewEncapsulation.None,
+    exportAs: 'hlmDialog'
 })
 export class HlmDialogComponent extends BrnDialog {
 }

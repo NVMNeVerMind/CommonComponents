@@ -1,5 +1,5 @@
 import {Component, computed, input} from '@angular/core';
-import {clsx} from 'clsx';
+import {hlm} from '@spartan-ng/ui-core';
 import type {ClassValue} from 'clsx';
 
 @Component({
@@ -12,5 +12,5 @@ import type {ClassValue} from 'clsx';
 })
 export class HlmSkeletonComponent {
   public readonly userClass = input<ClassValue>('', {alias: 'class'});
-  protected _computedClass = computed(() => clsx('block animate-pulse rounded-md bg-muted', this.userClass()));
+  protected _computedClass = computed(() => hlm('block animate-pulse rounded-md bg-muted', this.userClass()));
 }

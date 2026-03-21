@@ -7,7 +7,7 @@ import { BrnTabs } from '@spartan-ng/brain/tabs';
 	hostDirectives: [
 		{
 			directive: BrnTabs,
-			inputs: ['orientation', 'direction', 'activationMode', 'brnTabs: tab'],
+			inputs: ['orientation', 'activationMode', 'brnTabs: tab'],
 			outputs: ['tabActivated'],
 		},
 	],

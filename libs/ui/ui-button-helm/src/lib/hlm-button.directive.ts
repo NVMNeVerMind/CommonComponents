@@ -1,5 +1,5 @@
 import {computed, Directive, input, signal} from '@angular/core';
-import { hlm } from '@spartan-ng/ui-core';
+import {hlm} from '@spartan-ng/ui-core';
 import {cva, type VariantProps} from 'class-variance-authority';
 import type {ClassValue} from 'clsx';
 import {injectBrnButtonConfig} from './hlm-button.token';

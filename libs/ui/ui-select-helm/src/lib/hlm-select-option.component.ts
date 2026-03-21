@@ -1,21 +1,20 @@
 import {ChangeDetectionStrategy, Component, computed, inject, input} from '@angular/core';
 import {NgIcon, provideIcons} from '@ng-icons/core';
 import {lucideCheck} from '@ng-icons/lucide';
-import { hlm } from '@spartan-ng/ui-core';
+import {hlm} from '@spartan-ng/ui-core';
 import {BrnSelectOption} from '@spartan-ng/brain/select';
-import {HlmIconDirective} from '../../../ui-icon-helm/src';
+import {HlmIconDirective} from '@spartan-ng/ui-icon-helm';
 import type {ClassValue} from 'clsx';
 
 @Component({
-  selector: 'hlm-option',
-  standalone: true,
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  hostDirectives: [{directive: BrnSelectOption, inputs: ['disabled', 'value']}],
-  providers: [provideIcons({lucideCheck})],
-  host: {
-    '[class]': '_computedClass()',
-  },
-  template: `
+    selector: 'hlm-option',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    hostDirectives: [{ directive: BrnSelectOption, inputs: ['disabled', 'value'] }],
+    providers: [provideIcons({ lucideCheck })],
+    host: {
+        '[class]': '_computedClass()',
+    },
+    template: `
     <ng-content/>
     <span
       [attr.dir]="_brnSelectOption.dir()"
@@ -27,7 +26,7 @@ import type {ClassValue} from 'clsx';
       }
 		</span>
   `,
-  imports: [NgIcon, HlmIconDirective],
+    imports: [NgIcon, HlmIconDirective]
 })
 export class HlmSelectOptionComponent {
   public readonly userClass = input<ClassValue>('', {alias: 'class'});

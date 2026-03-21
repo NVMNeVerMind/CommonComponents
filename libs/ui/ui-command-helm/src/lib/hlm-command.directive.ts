@@ -1,9 +1,9 @@
 import {computed, Directive, input} from '@angular/core';
-import { hlm } from '@spartan-ng/ui-core';
+import {hlm} from '@spartan-ng/ui-core';
 import type {ClassValue} from 'clsx';
 
 @Directive({
-	selector: 'cmdk-command[hlm],brn-cmd[hlm]',
+	selector: '[brnCommand][hlm]',
 	standalone: true,
 	host: {
 		'[class]': '_computedClass()',

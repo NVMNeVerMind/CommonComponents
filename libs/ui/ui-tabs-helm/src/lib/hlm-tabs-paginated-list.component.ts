@@ -5,8 +5,8 @@ import { NgIcon, provideIcons } from '@ng-icons/core';
 import { lucideChevronLeft, lucideChevronRight } from '@ng-icons/lucide';
 import { hlm } from '@spartan-ng/ui-core';
 import { BrnTabsPaginatedList, BrnTabsTrigger } from '@spartan-ng/brain/tabs';
-import { buttonVariants } from '../../../ui-button-helm/src';
-import { HlmIconDirective } from '../../../ui-icon-helm/src';
+import { buttonVariants } from '@spartan-ng/ui-button-helm';
+import { HlmIconDirective } from '@spartan-ng/ui-icon-helm';
 import type { ClassValue } from 'clsx';
 import { listVariants } from './hlm-tabs-list.component';
 
@@ -22,10 +22,10 @@ import { listVariants } from './hlm-tabs-list.component';
 			type="button"
 			aria-hidden="true"
 			tabindex="-1"
-			[class.flex]="_showPaginationControls()"
-			[class.hidden]="!_showPaginationControls()"
+			[class.flex]="showPaginationControls()"
+			[class.hidden]="!showPaginationControls()"
 			[class]="_paginationButtonClass()"
-			[disabled]="_disableScrollBefore || null"
+			[disabled]="disableScrollBefore || null"
 			(click)="_handlePaginatorClick('before')"
 			(mousedown)="_handlePaginatorPress('before', $event)"
 			(touchend)="_stopInterval()"
@@ -47,10 +47,10 @@ import { listVariants } from './hlm-tabs-list.component';
 			type="button"
 			aria-hidden="true"
 			tabindex="-1"
-			[class.flex]="_showPaginationControls()"
-			[class.hidden]="!_showPaginationControls()"
+			[class.flex]="showPaginationControls()"
+			[class.hidden]="!showPaginationControls()"
 			[class]="_paginationButtonClass()"
-			[disabled]="_disableScrollAfter || null"
+			[disabled]="disableScrollAfter || null"
 			(click)="_handlePaginatorClick('after')"
 			(mousedown)="_handlePaginatorPress('after', $event)"
 			(touchend)="_stopInterval()"
@@ -63,14 +63,14 @@ import { listVariants } from './hlm-tabs-list.component';
 	},
 })
 export class HlmTabsPaginatedListComponent extends BrnTabsPaginatedList {
-	public readonly _items = contentChildren(BrnTabsTrigger, { descendants: false });
-	public readonly _itemsChanges = toObservable(this._items);
+	public readonly items = contentChildren(BrnTabsTrigger, { descendants: false });
+	public readonly itemsChanges = toObservable(this.items);
 
-	public readonly _tabListContainer = viewChild.required<ElementRef<HTMLElement>>('tabListContainer');
-	public readonly _tabList = viewChild.required<ElementRef<HTMLElement>>('tabList');
-	public readonly _tabListInner = viewChild.required<ElementRef<HTMLElement>>('tabListInner');
-	public readonly _nextPaginator = viewChild.required<ElementRef<HTMLElement>>('nextPaginator');
-	public readonly _previousPaginator = viewChild.required<ElementRef<HTMLElement>>('previousPaginator');
+	public readonly tabListContainer = viewChild.required<ElementRef<HTMLElement>>('tabListContainer');
+	public readonly tabList = viewChild.required<ElementRef<HTMLElement>>('tabList');
+	public readonly tabListInner = viewChild.required<ElementRef<HTMLElement>>('tabListInner');
+	public readonly nextPaginator = viewChild.required<ElementRef<HTMLElement>>('nextPaginator');
+	public readonly previousPaginator = viewChild.required<ElementRef<HTMLElement>>('previousPaginator');
 
 	public readonly userClass = input<ClassValue>('', { alias: 'class' });
 	protected readonly _computedClass = computed(() =>

@@ -1,5 +1,5 @@
 import {computed, Directive, input} from '@angular/core';
-import { hlm } from '@spartan-ng/ui-core';
+import {hlm} from '@spartan-ng/ui-core';
 import {BrnSheetDescription} from '@spartan-ng/brain/sheet';
 import type {ClassValue} from 'clsx';
 

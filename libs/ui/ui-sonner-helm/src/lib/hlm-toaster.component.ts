@@ -1,13 +1,12 @@
 import {booleanAttribute, ChangeDetectionStrategy, Component, computed, input, numberAttribute} from '@angular/core';
-import {clsx} from 'clsx';
+import {hlm} from '@spartan-ng/ui-core';
 import type {ClassValue} from 'clsx';
 import {NgxSonnerToaster, type ToasterProps} from 'ngx-sonner';
 
 @Component({
-	selector: 'hlm-toaster',
-	standalone: true,
-	imports: [NgxSonnerToaster],
-	template: `
+    selector: 'hlm-toaster',
+    imports: [NgxSonnerToaster],
+    template: `
 		<ngx-sonner-toaster
 			[class]="_computedClass()"
 			[invert]="invert()"
@@ -25,7 +24,7 @@ import {NgxSonnerToaster, type ToasterProps} from 'ngx-sonner';
 			[style]="userStyle()"
 		/>
 	`,
-	changeDetection: ChangeDetectionStrategy.OnPush,
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HlmToasterComponent {
 	public readonly invert = input<ToasterProps['invert'], boolean | string>(false, {
@@ -63,5 +62,5 @@ export class HlmToasterComponent {
 	public readonly userClass = input<ClassValue>('', { alias: 'class' });
 	public readonly userStyle = input<Record<string, string>>({}, { alias: 'style' });
 
-	protected readonly _computedClass = computed(() => clsx('toaster group', this.userClass()));
+	protected readonly _computedClass = computed(() => hlm('toaster group', this.userClass()));
 }

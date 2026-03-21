@@ -2,22 +2,21 @@ import {NgComponentOutlet} from '@angular/common';
 import {ChangeDetectionStrategy, Component, computed, inject, input, ViewEncapsulation} from '@angular/core';
 import {NgIcon, provideIcons} from '@ng-icons/core';
 import {lucideX} from '@ng-icons/lucide';
-import { hlm } from '@spartan-ng/ui-core';
+import {hlm} from '@spartan-ng/ui-core';
 import {BrnDialogClose, BrnDialogRef, injectBrnDialogContext} from '@spartan-ng/brain/dialog';
-import {HlmIconDirective} from '../../../ui-icon-helm/src';
+import {HlmIconDirective} from '@spartan-ng/ui-icon-helm';
 import type {ClassValue} from 'clsx';
 import {HlmDialogCloseDirective} from './hlm-dialog-close.directive';
 
 @Component({
-	selector: 'hlm-dialog-content',
-	standalone: true,
-	imports: [NgComponentOutlet, BrnDialogClose, HlmDialogCloseDirective, NgIcon, HlmIconDirective],
-	providers: [provideIcons({ lucideX })],
-	host: {
-		'[class]': '_computedClass()',
-		'[attr.data-state]': 'state()',
-	},
-	template: `
+    selector: 'hlm-dialog-content',
+    imports: [NgComponentOutlet, BrnDialogClose, HlmDialogCloseDirective, NgIcon, HlmIconDirective],
+    providers: [provideIcons({ lucideX })],
+    host: {
+        '[class]': '_computedClass()',
+        '[attr.data-state]': 'state()',
+    },
+    template: `
 		@if (component) {
 			<ng-container [ngComponentOutlet]="component" />
 		} @else {
@@ -29,8 +28,8 @@ import {HlmDialogCloseDirective} from './hlm-dialog-close.directive';
 			<ng-icon hlm size="sm" name="lucideX" />
 		</button>
 	`,
-	changeDetection: ChangeDetectionStrategy.OnPush,
-	encapsulation: ViewEncapsulation.None,
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    encapsulation: ViewEncapsulation.None
 })
 export class HlmDialogContentComponent {
 	private readonly _dialogRef = inject(BrnDialogRef);

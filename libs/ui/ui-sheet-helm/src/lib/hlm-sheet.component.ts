@@ -4,27 +4,26 @@ import {BrnSheet, BrnSheetOverlay} from '@spartan-ng/brain/sheet';
 import {HlmSheetOverlayDirective} from './hlm-sheet-overlay.directive';
 
 @Component({
-	selector: 'hlm-sheet',
-	standalone: true,
-	imports: [BrnSheetOverlay, HlmSheetOverlayDirective],
-	providers: [
-		{
-			provide: BrnDialog,
-			useExisting: forwardRef(() => BrnSheet),
-		},
-		{
-			provide: BrnSheet,
-			useExisting: forwardRef(() => HlmSheetComponent),
-		},
-		provideBrnDialogDefaultOptions({closeDelay: 100}),
-	],
-	template: `
+    selector: 'hlm-sheet',
+    imports: [BrnSheetOverlay, HlmSheetOverlayDirective],
+    providers: [
+        {
+            provide: BrnDialog,
+            useExisting: forwardRef(() => BrnSheet),
+        },
+        {
+            provide: BrnSheet,
+            useExisting: forwardRef(() => HlmSheetComponent),
+        },
+        provideBrnDialogDefaultOptions({closeDelay: 100}),
+    ],
+    template: `
 		<brn-sheet-overlay hlm />
 		<ng-content />
 	`,
-	encapsulation: ViewEncapsulation.None,
-	changeDetection: ChangeDetectionStrategy.OnPush,
-	exportAs: 'hlmSheet',
+    encapsulation: ViewEncapsulation.None,
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    exportAs: 'hlmSheet'
 })
 export class HlmSheetComponent extends BrnSheet {
 }
