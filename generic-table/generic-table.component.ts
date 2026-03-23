@@ -23,6 +23,7 @@ export class GenericTableComponent {
   @Output() itemsPerPageChange = new EventEmitter<number>();
 
   @ContentChild('rowTemplate', {static: false}) rowTemplate: TemplateRef<any> | undefined;
+  @ContentChild('mobileRowTemplate', {static: false}) mobileRowTemplate: TemplateRef<any> | undefined;
 
   @Input() addedClass: string = '';
 

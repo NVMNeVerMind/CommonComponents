@@ -21,6 +21,24 @@
     </table>
   </div>
 
+  <!-- Mobile card view -->
+  <div class="md:hidden">
+    <ng-container *ngFor="let row of paginatedData; let idx = index">
+      <ng-container *ngIf="mobileRowTemplate; else autoCard">
+        <ng-container *ngTemplateOutlet="mobileRowTemplate; context: { $implicit: row, index: idx }"></ng-container>
+      </ng-container>
+      <ng-template #autoCard>
+        <div class="p-4 border-b" [ngClass]="{'bg-gray-50': idx % 2 === 0}">
+          <div *ngFor="let col of columns" class="flex justify-between py-1">
+            <span class="text-xs font-semibold text-gray-500">{{ col.label }}</span>
+            <span class="text-sm text-gray-700 text-right">{{ row[col.field] }}</span>
+          </div>
+        </div>
+      </ng-template>
+    </ng-container>
+  </div>
+
+  <!-- Desktop pagination -->
   <div class="hidden md:flex border-t px-4 py-4 sm:px-6 flex-col sm:flex-row items-center justify-between gap-4">
   <span class="text-sm text-gray-600 order-2 sm:order-1">
     {{ (currentPage - 1) * itemsPerPage + 1 }}
@@ -47,6 +65,34 @@
           <lucide-icon class="h-5 w-5 text-gray-600" name="chevron-right"/>
         </button>
         <button (click)="setPage(totalPages)" class="hidden p-2 rounded hover:bg-gray-100 sm:block">&gt;&gt;</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile pagination -->
+  <div class="flex md:hidden border-t px-4 py-4 flex-col items-center justify-between gap-4">
+  <span class="text-sm text-gray-600">
+    {{ (currentPage - 1) * itemsPerPage + 1 }}
+    – {{ Math.min(currentPage * itemsPerPage, total ? total : data ? data.length : 0) }}
+    sur {{ total ? total : data ? data.length : 0 }}
+  </span>
+    <div class="flex items-center gap-4 w-full justify-between">
+      <div class="flex items-center gap-2">
+        <span class="text-sm text-gray-600 whitespace-nowrap">Par page</span>
+        <select (change)="onItemsPerPageChange($event)" [value]="itemsPerPage"
+                class="border rounded-lg px-2 py-1.5 text-sm bg-white">
+          <option [value]="5">5</option>
+          <option [value]="10">10</option>
+          <option [value]="25">25</option>
+        </select>
+      </div>
+      <div class="flex items-center gap-1">
+        <button (click)="prevPage()" class="p-2 rounded hover:bg-gray-100">
+          <lucide-icon class="h-5 w-5 text-gray-600" name="chevron-left"/>
+        </button>
+        <button (click)="nextPage()" class="p-2 rounded hover:bg-gray-100">
+          <lucide-icon class="h-5 w-5 text-gray-600" name="chevron-right"/>
+        </button>
       </div>
     </div>
   </div>
