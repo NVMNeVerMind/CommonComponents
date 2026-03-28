@@ -5,7 +5,7 @@
     <lucide-icon *ngIf="iconName" [name]="iconName"></lucide-icon>
   </button>
   <button *ngIf="title" brnDialogTrigger
-          class="bg-destructive hover:bg-destructive/90 min-w-[150px] h-[50px] border-none rounded-[10px] font-bold text-[16px] text-white"
+          variant="destructive"
           hlmBtn>
     {{ title }}
   </button>
@@ -16,7 +16,7 @@
     </hlm-dialog-header>
 
     <hlm-dialog-footer>
-      <button (click)="yes()" brnDialogClose class="!bg-destructive" hlmBtn>{{ accept }}</button>
+      <button (click)="yes()" brnDialogClose variant="destructive" hlmBtn>{{ accept }}</button>
       <button (click)="no()" brnDialogClose hlmBtn>{{ refuse }}</button>
     </hlm-dialog-footer>
   </hlm-dialog-content>
