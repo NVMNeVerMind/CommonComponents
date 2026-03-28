@@ -1,3 +1,4 @@
-<span *ngIf="notificationService.isEnabled" (click)="closed()" [ngClass]="notificationService.isWarning ? 'bad' : 'good'" class="z-20">
-    {{notificationService.message}}
+<span *ngIf="notificationService.isEnabled" (click)="closed()"
+      [ngClass]="[notificationService.isWarning ? 'bad' : 'good', 'z-index: 10000']">
+    {{ notificationService.message }}
 </span>
