@@ -1,18 +1,14 @@
 <hlm-dialog>
-  <button *ngIf="iconName"
-          brnDialogTrigger
-          class="editButton flex items-center justify-center bg-destructive w-10 h-10 border-none rounded-xl font-bold text-xs text-destructive-foreground cursor-pointer hover:bg-destructive/90">
+  <button *ngIf="iconName" brnDialogTrigger hlmBtn variant="destructive">
     <lucide-icon *ngIf="iconName" [name]="iconName"></lucide-icon>
   </button>
-  <button *ngIf="title" brnDialogTrigger
-          variant="destructive"
-          hlmBtn>
+  <button *ngIf="title" brnDialogTrigger variant="destructive" hlmBtn>
     {{ title }}
   </button>
   <hlm-dialog-content *brnDialogContent="let ctx">
     <hlm-dialog-header>
-      <h2 brnDialogTitle hlm>{{ title }}</h2>
-      <p brnDialogDescription hlm>{{ description }} </p>
+      <h2 brnDialogTitle>{{ title }}</h2>
+      <p brnDialogDescription>{{ description }} </p>
     </hlm-dialog-header>
 
     <hlm-dialog-footer>
