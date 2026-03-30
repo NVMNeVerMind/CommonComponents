@@ -1,4 +1,4 @@
-import {booleanAttribute, ChangeDetectionStrategy, Component, computed, input, numberAttribute} from '@angular/core';
+import {booleanAttribute, ChangeDetectionStrategy, Component, computed, input, numberAttribute, ViewEncapsulation} from '@angular/core';
 import {hlm} from '@spartan-ng/ui-core';
 import type {ClassValue} from 'clsx';
 import {NgxSonnerToaster, type ToasterProps} from 'ngx-sonner';
@@ -24,6 +24,20 @@ import {NgxSonnerToaster, type ToasterProps} from 'ngx-sonner';
 			[style]="userStyle()"
 		/>
 	`,
+    styles: `
+		[data-rich-colors=true] [data-sonner-toast][data-type=error],
+		[data-rich-colors=true] [data-sonner-toast][data-type=error] [data-close-button] {
+			--error-bg: hsl(var(--destructive-foreground));
+			--error-border: hsl(var(--destructive));
+			--error-text: hsl(var(--destructive));
+		}
+
+		[data-rich-colors=true] [data-sonner-toast][data-type=error] [data-button] {
+			background: hsl(var(--destructive));
+			color: hsl(var(--destructive-foreground));
+		}
+	`,
+    encapsulation: ViewEncapsulation.None,
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HlmToasterComponent {

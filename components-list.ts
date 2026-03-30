@@ -6,7 +6,6 @@ import {LittleInputComponent} from "./little-input/little-input.component";
 import {TableComponent} from "./table/table.component";
 import {PrimaryButtonComponent} from "./button/primary-button.component";
 import {LinkComponent} from "./link/link.component";
-import {PopUpComponent} from "./pop-up/pop-up.component";
 import {ButtonComponent} from "./question-button/button.component";
 import {QuestionHeaderComponent} from "./question-header/question-header.component";
 import {ImageInputComponent} from "./image-input/image-input.component";
@@ -41,7 +40,6 @@ export const ComponentsList = [
     LinkComponent,
     LittleInputComponent,
     ImageInputComponent,
-    PopUpComponent,
     TableComponent,
     QuestionHeaderComponent,
     LoaderComponent,
