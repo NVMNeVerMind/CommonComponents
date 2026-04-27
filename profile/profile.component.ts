@@ -1,6 +1,7 @@
 import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {AuthService} from "../../services/auth/auth.service";
 import {Router} from "@angular/router";
+import {Pages} from "../../app-routing.module";
 
 @Component({
   selector: 'app-profile',
@@ -113,7 +114,7 @@ export class ProfileComponent implements OnInit {
   }
 
   goBack() {
-    this.router.navigate(['/']);
+    this.router.navigate(['/' + Pages.home]);
   }
 }
 
