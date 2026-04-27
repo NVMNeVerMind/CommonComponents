@@ -28,6 +28,7 @@ import {SwitchComponent} from "./switch/switch.component";
 import {UserMenuButtonComponent} from "./user-menu-button/user-menu-button.component";
 import {ProfileComponent} from "./profile/profile.component";
 import {ClassDropdownComponent} from "./class-dropdown/class-dropdown.component";
+import {SearchableSelectComponent} from "./searchable-select/searchable-select.component";
 
 export const ComponentsList = [
     PrimaryButtonComponent,
@@ -59,5 +60,6 @@ export const ComponentsList = [
     SwitchComponent,
     UserMenuButtonComponent,
     ProfileComponent,
-  ClassDropdownComponent
+  ClassDropdownComponent,
+  SearchableSelectComponent,
 ]
