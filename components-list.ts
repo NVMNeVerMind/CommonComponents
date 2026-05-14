@@ -27,6 +27,7 @@ import {UserMenuButtonComponent} from "./user-menu-button/user-menu-button.compo
 import {ProfileComponent} from "./profile/profile.component";
 import {ClassDropdownComponent} from "./class-dropdown/class-dropdown.component";
 import {SearchableSelectComponent} from "./searchable-select/searchable-select.component";
+import {ValidationModalComponent} from "./validation-modal/validation-modal.component";
 
 export const ComponentsList = [
     PrimaryButtonComponent,
@@ -58,4 +59,5 @@ export const ComponentsList = [
     ProfileComponent,
   ClassDropdownComponent,
   SearchableSelectComponent,
+  ValidationModalComponent,
 ]

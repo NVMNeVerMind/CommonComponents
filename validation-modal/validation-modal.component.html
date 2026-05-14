@@ -1,0 +1,38 @@
+<div
+  *ngIf="isOpen"
+  class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+  (click)="cancel()"
+>
+  <div
+    class="bg-white rounded-lg shadow-xl max-w-md w-full mx-4 overflow-hidden"
+    (click)="$event.stopPropagation()"
+  >
+    <!-- Header -->
+    <div
+      class="px-6 py-4 border-b flex items-center gap-3"
+      [ngClass]="isWarning ? 'bg-red-50 border-red-200' : 'bg-blue-50 border-blue-200'"
+    >
+      <h3
+        class="text-lg font-semibold"
+        [ngClass]="isWarning ? 'text-destructive' : 'text-primary'"
+      >
+        {{ title }}
+      </h3>
+    </div>
+
+    <!-- Body -->
+    <div class="p-6">
+      <p class="text-gray-700">{{ text }}</p>
+    </div>
+
+    <!-- Footer -->
+    <div class="px-6 py-4 bg-gray-50 border-t border-gray-200 flex justify-end gap-3">
+      <button (click)="cancel()" hlmBtn variant="ghost">
+        Annuler
+      </button>
+      <button (click)="confirm()" hlmBtn [variant]="isWarning ? 'destructive' : 'default'">
+        {{ ctaText }}
+      </button>
+    </div>
+  </div>
+</div>
