@@ -1,0 +1,85 @@
+<div class="flex items-center gap-2 w-full">
+  <div class="relative w-full min-w-[300px]">
+    <button
+      type="button"
+      (click)="toggleDropdown()"
+      class="w-full flex items-center justify-between px-4 py-2 bg-white border border-gray-300 rounded-lg text-left hover:border-gray-400 focus:ring-2 focus:ring-primary focus:border-primary transition-all"
+      [class.ring-2]="isDropdownOpen"
+      [class.ring-primary]="isDropdownOpen"
+      [class.border-primary]="isDropdownOpen"
+    >
+      <span [class.text-gray-400]="!selectedYearlyClass" class="text-sm truncate">
+        {{ selectedYearlyClass?.value || 'Sélectionner...' }}
+      </span>
+      <lucide-icon
+        name="chevron-down"
+        class="w-4 h-4 text-gray-500 transition-transform duration-200"
+        [class.rotate-180]="isDropdownOpen"
+      ></lucide-icon>
+    </button>
+
+    <div
+      *ngIf="isDropdownOpen"
+      class="absolute z-50 w-full mt-1 bg-white border border-gray-200 rounded-lg shadow-lg overflow-hidden"
+    >
+      <div class="p-2 border-b border-gray-100">
+        <div class="relative">
+          <lucide-icon name="search" class="absolute left-2 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400"></lucide-icon>
+          <input
+            type="text"
+            [(ngModel)]="classSearchTerm"
+            [ngModelOptions]="{standalone: true}"
+            (input)="filterYearlyClasses()"
+            placeholder="Rechercher une classe..."
+            class="w-full pl-9 pr-4 py-2 text-sm border border-gray-200 rounded-md focus:ring-2 focus:ring-primary focus:border-primary outline-none"
+            (click)="$event.stopPropagation()"
+          />
+        </div>
+      </div>
+
+      <div class="max-h-48 overflow-y-auto">
+        <div
+          *ngIf="filteredYearlyClass.length === 0"
+          class="px-4 py-6 text-center text-gray-400"
+        >
+          <p class="text-sm">Aucune classe trouvée</p>
+        </div>
+
+        <button
+          *ngFor="let cls of filteredYearlyClass"
+          type="button"
+          (click)="selectClass(cls)"
+          class="w-full flex items-center gap-3 px-4 py-2.5 text-left hover:bg-gray-50 transition-colors"
+          [class.bg-primary/10]="selectedYearlyClass?.id === cls.id"
+          [class.text-primary]="selectedYearlyClass?.id === cls.id"
+        >
+          <div
+            class="w-6 h-6 rounded-md flex items-center justify-center"
+            [class.bg-primary/15]="selectedYearlyClass?.id === cls.id"
+            [class.bg-gray-100]="selectedYearlyClass?.id !== cls.id"
+          >
+            <lucide-icon
+              name="users"
+              class="w-3.5 h-3.5"
+              [class.text-primary]="selectedYearlyClass?.id === cls.id"
+              [class.text-gray-500]="selectedYearlyClass?.id !== cls.id"
+            ></lucide-icon>
+          </div>
+          <span class="text-sm font-medium">{{ cls.value }}</span>
+          <lucide-icon
+            *ngIf="selectedYearlyClass?.id === cls.id"
+            name="check"
+            class="w-4 h-4 ml-auto text-primary"
+          ></lucide-icon>
+        </button>
+      </div>
+    </div>
+
+    <div
+      *ngIf="isDropdownOpen"
+      class="fixed inset-0 z-40"
+      (click)="closeDropdown()"
+    ></div>
+  </div>
+</div>
+

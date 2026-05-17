@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {ChangeDetectorRef, Component, Input} from '@angular/core';
 import {AuthService} from "../../services/auth/auth.service";
 import {Credentials} from "../../services/auth/credentials";
 import {User} from "../../services/user/user";
@@ -27,6 +27,7 @@ export class LoginComponent {
     private readonly authService: AuthService,
     private readonly notification: NotificationService,
     private readonly router: Router,
+    private readonly cdr: ChangeDetectorRef,
   ) {
   }
 
@@ -43,11 +44,16 @@ export class LoginComponent {
             this.authService.saveUser(user)
             this.router.navigate(['/', Pages.home])
           }
+          this.cdr.detectChanges();
         },
         error: (_) => {
           this.notification.notify('Identifiants incorrects', true);
+          this.cdr.detectChanges();
         }
-      }).add(() => this.isLoading = false);
+      }).add(() => {
+        this.isLoading = false;
+        this.cdr.detectChanges();
+      });
     } catch (error) {
         this.notification.notify('Une erreur est survenue lors de la connexion', true);
     }

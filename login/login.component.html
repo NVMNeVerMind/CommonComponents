@@ -1,27 +1,29 @@
 <div id="page">
     <form class="flex flex-col items-center gap-8 mt-8" (submit)="connect()">
         <div class="flex flex-col gap-5 w-full max-w-md p-8 bg-white rounded-lg shadow-md">
-            <h1 class="text-2xl font-semibold text-center text-gray-800 mb-6">Se connecter</h1>
+            <h1 class="text-2xl font-semibold text-center text-primary mb-6">Se connecter</h1>
             <div class="flex flex-col gap-5">
                 <div class="relative">
-                    <lucide-icon class="absolute left-1 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" name="mail"></lucide-icon>
+                    <lucide-icon class="absolute left-1 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5"
+                                 name="mail"></lucide-icon>
 
                     <input
                             type="email"
                             [(ngModel)]="credentials.email"
                             name="email"
                             placeholder="Email"
-                            class="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                            class="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
                     />
                 </div>
                 <div class="relative">
-                    <lucide-icon class="absolute left-1 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" name="lock"></lucide-icon>
+                    <lucide-icon class="absolute left-1 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5"
+                                 name="lock"></lucide-icon>
                     <input
                             [(ngModel)]="credentials.password"
                             [type]="showPassword ? 'text' : 'password'"
                             placeholder="Mot de passe"
                             name="password"
-                            class="w-full pl-10 pr-12 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                            class="w-full pl-10 pr-12 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
                     />
                     <button
                             type="button"
@@ -35,17 +37,13 @@
             </div>
 
             <div class="text-right">
-                <a href="/resetPassword" class="text-sm text-gray-600 hover:text-[#39918C] transition-colors">
+                <a href="/resetPassword" class="text-sm text-gray-500 hover:text-secondary transition-colors">
                     Mot de passe oublié ?
                 </a>
             </div>
-            <button type="submit"
-                    class="w-full py-2 px-4 text-white font-medium rounded-lg transition-colors duration-200"
-                    [ngClass]="this.styleClass === 'teacher' ? 'bg-[#2F435A]' : 'bg-[#39918C]'"
-            >
-                Se connecter
-            </button>
+            <button hlmBtn>Se connecter</button>
         </div>
         <app-loader *ngIf="isLoading"></app-loader>
     </form>
 </div>
+<hlm-toaster richColors />
