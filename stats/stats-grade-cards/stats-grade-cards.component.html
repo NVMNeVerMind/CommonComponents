@@ -1,0 +1,28 @@
+<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+  <div class="bg-white rounded-lg shadow p-4 text-center">
+    <p class="text-xs text-gray-500 uppercase tracking-wider mb-1">Moyenne</p>
+    <p class="text-2xl font-bold text-[#2f435a]">{{ format(grades.averageGrade) }}</p>
+  </div>
+  <div class="bg-white rounded-lg shadow p-4 text-center">
+    <p class="text-xs text-gray-500 uppercase tracking-wider mb-1">Médiane</p>
+    <p class="text-2xl font-bold text-[#2f435a]">{{ format(grades.medianGrade) }}</p>
+  </div>
+  <div class="bg-white rounded-lg shadow p-4 text-center">
+    <p class="text-xs text-gray-500 uppercase tracking-wider mb-1">Min / Max</p>
+    <p class="text-2xl font-bold text-[#2f435a]">{{ format(grades.minGrade) }} / {{ format(grades.maxGrade) }}</p>
+  </div>
+  <div class="bg-white rounded-lg shadow p-4 text-center">
+    <p class="text-xs text-gray-500 uppercase tracking-wider mb-1">Écart-type</p>
+    <p class="text-2xl font-bold text-[#2f435a]">{{ format(grades.standardDeviation) }}</p>
+  </div>
+  <div class="bg-white rounded-lg shadow p-4 text-center">
+    <p class="text-xs text-gray-500 uppercase tracking-wider mb-1">Taux de réussite</p>
+    <p class="text-2xl font-bold" [ngClass]="grades.passRate >= 50 ? 'text-green-600' : 'text-red-600'">
+      {{ format(grades.passRate) }}%
+    </p>
+  </div>
+  <div class="bg-white rounded-lg shadow p-4 text-center">
+    <p class="text-xs text-gray-500 uppercase tracking-wider mb-1">Étudiants</p>
+    <p class="text-2xl font-bold text-[#2f435a]">{{ grades.totalStudents }}</p>
+  </div>
+</div>
