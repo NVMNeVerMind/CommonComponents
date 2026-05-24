@@ -140,6 +140,10 @@
                     <app-loader *ngIf="isLoading" class="scale-50 mr-2"></app-loader>
                     <span *ngIf="!isLoading">Modifier le mot de passe</span>
                 </button>
+
+                <p class="text-sm text-center text-muted-foreground">
+                    <button hlmBtn variant="link" type="button" (click)="sendPasswordReset()">Mot de passe oublié ?</button>
+                </p>
             </form>
         </div>
     </div>

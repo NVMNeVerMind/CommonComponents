@@ -114,6 +114,20 @@ export class ProfileComponent implements OnInit {
         });
     }
 
+    protected sendPasswordReset() {
+        this.clearMessages();
+        this.authService.resetPassword(this.email).subscribe({
+            next: () => {
+                this.successMessage = 'Un email de réinitialisation vous a été envoyé.';
+                this.cdr.detectChanges();
+            },
+            error: () => {
+                this.errorMessage = 'Impossible d\'envoyer l\'email. Réessayez plus tard.';
+                this.cdr.detectChanges();
+            }
+        });
+    }
+
     protected goBack() {
         this.router.navigate(['/' + Pages.home]);
     }
