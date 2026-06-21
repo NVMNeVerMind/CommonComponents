@@ -25,7 +25,7 @@ export const HLM_CHECKBOX_VALUE_ACCESSOR = {
                 [aria-label]="ariaLabel()"
                 [aria-labelledby]="ariaLabelledby()"
                 [aria-describedby]="ariaDescribedby()"
-                (changed)="_handleChange()"
+                (checkedChange)="_handleChange()"
                 (touched)="_onTouched()"
         >
             <hlm-checkbox-checkicon [class]="checkIconClass()" [iconName]="checkIconName()"/>
