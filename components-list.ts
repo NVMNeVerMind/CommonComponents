@@ -32,6 +32,7 @@ import {ChangelogComponent} from "./changelog/changelog.component";
 import {TimeScatterChartComponent} from "./stats/time-scatter-chart/time-scatter-chart.component";
 import {StatsGradeCardsComponent} from "./stats/stats-grade-cards/stats-grade-cards.component";
 import {StatsDistributionCardComponent} from "./stats/stats-distribution-card/stats-distribution-card.component";
+import {MarkdownEditorComponent} from "./markdown-editor/markdown-editor.component";
 
 export const ComponentsList = [
     PrimaryButtonComponent,
@@ -68,4 +69,5 @@ export const ComponentsList = [
   TimeScatterChartComponent,
   StatsGradeCardsComponent,
   StatsDistributionCardComponent,
+  MarkdownEditorComponent,
 ]
