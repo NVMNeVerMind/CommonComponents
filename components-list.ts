@@ -34,6 +34,7 @@ import {StatsGradeCardsComponent} from "./stats/stats-grade-cards/stats-grade-ca
 import {StatsDistributionCardComponent} from "./stats/stats-distribution-card/stats-distribution-card.component";
 import {MarkdownEditorComponent} from "./markdown-editor/markdown-editor.component";
 import {MarkdownPipe} from "./markdown.pipe";
+import {CodeEditorComponent} from "./code-editor/code-editor.component";
 
 export const ComponentsList = [
     PrimaryButtonComponent,
@@ -72,4 +73,5 @@ export const ComponentsList = [
   StatsDistributionCardComponent,
   MarkdownEditorComponent,
   MarkdownPipe,
+  CodeEditorComponent,
 ]

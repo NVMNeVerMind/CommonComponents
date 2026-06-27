@@ -1,0 +1,20 @@
+.code-editor-container {
+  border: 1px solid hsl(var(--border));
+  border-radius: 0.375rem;
+  overflow: hidden;
+  font-size: 0.875rem;
+}
+
+.code-editor-container .cm-editor {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.code-editor-container .cm-focused {
+  outline: none;
+}
+
+.code-editor-container .cm-editor.cm-focused {
+  outline: 2px solid hsl(var(--primary));
+  outline-offset: -2px;
+}
