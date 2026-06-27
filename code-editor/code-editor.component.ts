@@ -11,7 +11,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { basicSetup, EditorView } from 'codemirror';
-import { EditorState, Extension } from '@codemirror/state';
+import { Compartment, EditorState, Extension } from '@codemirror/state';
 import { javascript } from '@codemirror/lang-javascript';
 import { python } from '@codemirror/lang-python';
 import { sql } from '@codemirror/lang-sql';
@@ -35,15 +35,17 @@ export class CodeEditorComponent implements AfterViewInit, OnChanges, OnDestroy 
   @ViewChild('editorContainer') containerRef!: ElementRef<HTMLDivElement>;
 
   private editorView?: EditorView;
+  private languageCompartment = new Compartment();
 
   ngAfterViewInit(): void {
     this.initEditor();
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes['language'] && !changes['language'].firstChange) {
-      this.destroyEditor();
-      this.initEditor();
+    if (changes['language'] && !changes['language'].firstChange && this.editorView) {
+      this.editorView.dispatch({
+        effects: this.languageCompartment.reconfigure(this.getLanguageExtension()),
+      });
     } else if (changes['value'] && this.editorView) {
       const current = this.editorView.state.doc.toString();
       if (current !== changes['value'].currentValue) {
@@ -55,14 +57,15 @@ export class CodeEditorComponent implements AfterViewInit, OnChanges, OnDestroy 
   }
 
   ngOnDestroy(): void {
-    this.destroyEditor();
+    this.editorView?.destroy();
+    this.editorView = undefined;
   }
 
   private initEditor(): void {
     if (!this.containerRef) return;
     const extensions: Extension[] = [
       basicSetup,
-      this.getLanguageExtension(),
+      this.languageCompartment.of(this.getLanguageExtension()),
       EditorView.updateListener.of((update) => {
         if (update.docChanged && !this.readonly) {
           this.valueChange.emit(update.state.doc.toString());
@@ -76,11 +79,6 @@ export class CodeEditorComponent implements AfterViewInit, OnChanges, OnDestroy 
       state: EditorState.create({ doc: this.value ?? '', extensions }),
       parent: this.containerRef.nativeElement,
     });
-  }
-
-  private destroyEditor(): void {
-    this.editorView?.destroy();
-    this.editorView = undefined;
   }
 
   private getLanguageExtension(): Extension {
