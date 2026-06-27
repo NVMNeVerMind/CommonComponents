@@ -10,8 +10,8 @@ import {
   SimpleChanges,
   ViewChild,
 } from '@angular/core';
-import { EditorState } from '@codemirror/state';
-import { EditorView, basicSetup } from '@codemirror/basic-setup';
+import { basicSetup, EditorView } from 'codemirror';
+import { EditorState, Extension } from '@codemirror/state';
 import { javascript } from '@codemirror/lang-javascript';
 import { python } from '@codemirror/lang-python';
 import { sql } from '@codemirror/lang-sql';
@@ -19,7 +19,6 @@ import { java } from '@codemirror/lang-java';
 import { cpp } from '@codemirror/lang-cpp';
 import { html } from '@codemirror/lang-html';
 import { css } from '@codemirror/lang-css';
-import { Extension } from '@codemirror/state';
 
 @Component({
   selector: 'app-code-editor',
