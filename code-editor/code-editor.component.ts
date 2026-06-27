@@ -4,6 +4,7 @@ import {
   ElementRef,
   EventEmitter,
   Input,
+  NgZone,
   OnChanges,
   OnDestroy,
   Output,
@@ -37,21 +38,27 @@ export class CodeEditorComponent implements AfterViewInit, OnChanges, OnDestroy 
   private editorView?: EditorView;
   private languageCompartment = new Compartment();
 
+  constructor(private ngZone: NgZone) {}
+
   ngAfterViewInit(): void {
-    this.initEditor();
+    this.ngZone.runOutsideAngular(() => this.initEditor());
   }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['language'] && !changes['language'].firstChange && this.editorView) {
-      this.editorView.dispatch({
-        effects: this.languageCompartment.reconfigure(this.getLanguageExtension()),
-      });
+      const ext = this.getLanguageExtension();
+      this.ngZone.runOutsideAngular(() =>
+        this.editorView!.dispatch({ effects: this.languageCompartment.reconfigure(ext) }),
+      );
     } else if (changes['value'] && this.editorView) {
       const current = this.editorView.state.doc.toString();
       if (current !== changes['value'].currentValue) {
-        this.editorView.dispatch({
-          changes: { from: 0, to: current.length, insert: changes['value'].currentValue ?? '' },
-        });
+        const insert = changes['value'].currentValue ?? '';
+        this.ngZone.runOutsideAngular(() =>
+          this.editorView!.dispatch({
+            changes: { from: 0, to: current.length, insert },
+          }),
+        );
       }
     }
   }
@@ -68,7 +75,7 @@ export class CodeEditorComponent implements AfterViewInit, OnChanges, OnDestroy 
       this.languageCompartment.of(this.getLanguageExtension()),
       EditorView.updateListener.of((update) => {
         if (update.docChanged && !this.readonly) {
-          this.valueChange.emit(update.state.doc.toString());
+          this.ngZone.run(() => this.valueChange.emit(update.state.doc.toString()));
         }
       }),
     ];
