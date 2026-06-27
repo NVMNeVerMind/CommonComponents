@@ -1,4 +1,4 @@
-import {Component, ElementRef, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges, ViewChild} from '@angular/core';
+import {Component, ElementRef, EventEmitter, Input, OnChanges, OnInit, Output, SecurityContext, SimpleChanges, ViewChild} from '@angular/core';
 import {DomSanitizer, SafeHtml} from '@angular/platform-browser';
 import {marked} from 'marked';
 
@@ -31,8 +31,9 @@ export class MarkdownEditorComponent implements OnInit, OnChanges {
   }
 
   private async renderPreview(): Promise<void> {
-    const html = await marked.parse(this.content || '');
-    this.previewHtml = this.sanitizer.bypassSecurityTrustHtml(html);
+    const raw = await marked.parse(this.content || '');
+    const safe = this.sanitizer.sanitize(SecurityContext.HTML, raw) ?? '';
+    this.previewHtml = this.sanitizer.bypassSecurityTrustHtml(safe);
   }
 
   onContentChange(): void {
