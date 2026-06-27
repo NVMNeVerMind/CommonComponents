@@ -33,6 +33,7 @@ import {TimeScatterChartComponent} from "./stats/time-scatter-chart/time-scatter
 import {StatsGradeCardsComponent} from "./stats/stats-grade-cards/stats-grade-cards.component";
 import {StatsDistributionCardComponent} from "./stats/stats-distribution-card/stats-distribution-card.component";
 import {MarkdownEditorComponent} from "./markdown-editor/markdown-editor.component";
+import {MarkdownPipe} from "./markdown.pipe";
 
 export const ComponentsList = [
     PrimaryButtonComponent,
@@ -70,4 +71,5 @@ export const ComponentsList = [
   StatsGradeCardsComponent,
   StatsDistributionCardComponent,
   MarkdownEditorComponent,
+  MarkdownPipe,
 ]
