@@ -1,0 +1,106 @@
+<div class="flex flex-col gap-2">
+  <!-- Tab bar -->
+  <div class="flex border-b border-border">
+    <button type="button"
+            (click)="setTab('edit')"
+            class="px-3 py-1.5 text-sm transition-colors"
+            [class.text-primary]="activeTab === 'edit'"
+            [class.font-semibold]="activeTab === 'edit'"
+            [class.border-b-2]="activeTab === 'edit'"
+            [class.border-primary]="activeTab === 'edit'">
+      Éditer
+    </button>
+    <button type="button"
+            (click)="setTab('preview')"
+            class="px-3 py-1.5 text-sm transition-colors"
+            [class.text-primary]="activeTab === 'preview'"
+            [class.font-semibold]="activeTab === 'preview'"
+            [class.border-b-2]="activeTab === 'preview'"
+            [class.border-primary]="activeTab === 'preview'">
+      Aperçu
+    </button>
+  </div>
+
+  <!-- Toolbar (edit mode only) -->
+  <div *ngIf="activeTab === 'edit'" class="flex gap-1 flex-wrap pb-1.5 border-b border-border">
+    <button type="button"
+            (mousedown)="$event.preventDefault()"
+            (click)="insertFormat('**', '**')"
+            hlmBtn variant="ghost" size="icon"
+            title="Gras"
+            class="h-8 w-8 font-bold text-sm">
+      B
+    </button>
+    <button type="button"
+            (mousedown)="$event.preventDefault()"
+            (click)="insertFormat('*', '*')"
+            hlmBtn variant="ghost" size="icon"
+            title="Italique"
+            class="h-8 w-8 italic text-sm">
+      I
+    </button>
+    <button type="button"
+            (mousedown)="$event.preventDefault()"
+            (click)="insertLinePrefix('## ')"
+            hlmBtn variant="ghost"
+            title="Titre H2"
+            class="h-8 px-2 font-bold text-xs">
+      H2
+    </button>
+    <button type="button"
+            (mousedown)="$event.preventDefault()"
+            (click)="insertLinePrefix('### ')"
+            hlmBtn variant="ghost"
+            title="Titre H3"
+            class="h-8 px-2 font-bold text-xs">
+      H3
+    </button>
+    <button type="button"
+            (mousedown)="$event.preventDefault()"
+            (click)="insertLinePrefix('- ')"
+            hlmBtn variant="ghost"
+            title="Liste à puces"
+            class="h-8 px-2 text-sm">
+      ≡
+    </button>
+    <button type="button"
+            (mousedown)="$event.preventDefault()"
+            (click)="insertLinePrefix('1. ')"
+            hlmBtn variant="ghost"
+            title="Liste numérotée"
+            class="h-8 px-2 text-xs">
+      1.
+    </button>
+    <button type="button"
+            (mousedown)="$event.preventDefault()"
+            (click)="insertFormat('`', '`')"
+            hlmBtn variant="ghost"
+            title="Code inline"
+            class="h-8 px-2 font-mono text-xs">
+      `code`
+    </button>
+    <button type="button"
+            (mousedown)="$event.preventDefault()"
+            (click)="insertCodeBlock()"
+            hlmBtn variant="ghost"
+            title="Bloc de code"
+            class="h-8 px-2 font-mono text-xs">
+      ```
+    </button>
+  </div>
+
+  <!-- Textarea (edit mode) -->
+  <textarea *ngIf="activeTab === 'edit'"
+            #mdTextarea
+            [(ngModel)]="content"
+            (ngModelChange)="onContentChange()"
+            [placeholder]="placeholder"
+            class="h-40 font-mono text-sm resize-y w-full"
+            hlmInput></textarea>
+
+  <!-- Rendered preview -->
+  <div *ngIf="activeTab === 'preview'"
+       class="min-h-[10rem] p-3 border rounded-md border-input bg-background markdown-preview"
+       [innerHTML]="previewHtml">
+  </div>
+</div>
