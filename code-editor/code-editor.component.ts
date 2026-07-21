@@ -13,6 +13,7 @@ import {
 } from '@angular/core';
 import { basicSetup, EditorView } from 'codemirror';
 import { Compartment, EditorState, Extension } from '@codemirror/state';
+import { ViewUpdate } from '@codemirror/view';
 import { javascript } from '@codemirror/lang-javascript';
 import { python } from '@codemirror/lang-python';
 import { sql } from '@codemirror/lang-sql';
@@ -74,7 +75,7 @@ export class CodeEditorComponent implements AfterViewInit, OnChanges, OnDestroy 
     const extensions: Extension[] = [
       basicSetup,
       this.languageCompartment.of(this.getLanguageExtension()),
-      EditorView.updateListener.of((update) => {
+      EditorView.updateListener.of((update: ViewUpdate) => {
         if (update.docChanged && !this.readonly) {
           this.ngZone.run(() => this.valueChange.emit(update.state.doc.toString()));
         }
