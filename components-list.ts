@@ -35,6 +35,7 @@ import {StatsDistributionCardComponent} from "./stats/stats-distribution-card/st
 import {MarkdownEditorComponent} from "./markdown-editor/markdown-editor.component";
 import {MarkdownPipe} from "./markdown.pipe";
 import {CodeEditorComponent} from "./code-editor/code-editor.component";
+import {StatCardComponent} from "./stat-card/stat-card.component";
 
 export const ComponentsList = [
     PrimaryButtonComponent,
@@ -74,4 +75,5 @@ export const ComponentsList = [
   MarkdownEditorComponent,
   MarkdownPipe,
   CodeEditorComponent,
+  StatCardComponent,
 ]
