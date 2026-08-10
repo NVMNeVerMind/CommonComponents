@@ -28,9 +28,14 @@ import {ProfileComponent} from "./profile/profile.component";
 import {ClassDropdownComponent} from "./class-dropdown/class-dropdown.component";
 import {SearchableSelectComponent} from "./searchable-select/searchable-select.component";
 import {ValidationModalComponent} from "./validation-modal/validation-modal.component";
+import {ChangelogComponent} from "./changelog/changelog.component";
 import {TimeScatterChartComponent} from "./stats/time-scatter-chart/time-scatter-chart.component";
 import {StatsGradeCardsComponent} from "./stats/stats-grade-cards/stats-grade-cards.component";
 import {StatsDistributionCardComponent} from "./stats/stats-distribution-card/stats-distribution-card.component";
+import {MarkdownEditorComponent} from "./markdown-editor/markdown-editor.component";
+import {MarkdownPipe} from "./markdown.pipe";
+import {CodeEditorComponent} from "./code-editor/code-editor.component";
+import {StatCardComponent} from "./stat-card/stat-card.component";
 
 export const ComponentsList = [
     PrimaryButtonComponent,
@@ -63,7 +68,12 @@ export const ComponentsList = [
   ClassDropdownComponent,
   SearchableSelectComponent,
   ValidationModalComponent,
+  ChangelogComponent,
   TimeScatterChartComponent,
   StatsGradeCardsComponent,
   StatsDistributionCardComponent,
+  MarkdownEditorComponent,
+  MarkdownPipe,
+  CodeEditorComponent,
+  StatCardComponent,
 ]
