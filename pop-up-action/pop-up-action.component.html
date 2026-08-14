@@ -1,19 +1,24 @@
 <hlm-dialog>
-  <button *ngIf="iconName" brnDialogTrigger hlmBtn variant="destructive">
-    <lucide-icon *ngIf="iconName" [name]="iconName"></lucide-icon>
+  <button
+    *ngIf="iconName"
+    brnDialogTrigger
+    class="flex items-center justify-center w-10 h-10 rounded-full text-destructive hover:bg-destructive/10 transition-colors"
+  >
+    <lucide-icon [name]="iconName" class="w-4 h-4"></lucide-icon>
   </button>
   <button *ngIf="title" brnDialogTrigger variant="destructive" hlmBtn>
     {{ title }}
   </button>
-  <hlm-dialog-content *brnDialogContent="let ctx">
-    <hlm-dialog-header>
-      <h2 brnDialogTitle>{{ title }}</h2>
-      <p brnDialogDescription>{{ description }} </p>
+  <hlm-dialog-content *brnDialogContent="let ctx" class="!max-w-md !h-fit p-0 gap-0 overflow-hidden">
+    <hlm-dialog-header class="px-6 py-4 border-b border-red-200 bg-red-50 text-left">
+      <h2 brnDialogTitle class="text-lg font-semibold text-destructive">{{ title }}</h2>
     </hlm-dialog-header>
 
-    <hlm-dialog-footer>
+    <p brnDialogDescription class="px-6 py-6 text-gray-700">{{ description }}</p>
+
+    <hlm-dialog-footer class="px-6 py-4 bg-gray-50 border-t border-gray-200">
+      <button (click)="no()" brnDialogClose hlmBtn variant="ghost">{{ refuse }}</button>
       <button (click)="yes()" brnDialogClose variant="destructive" hlmBtn>{{ accept }}</button>
-      <button (click)="no()" brnDialogClose hlmBtn>{{ refuse }}</button>
     </hlm-dialog-footer>
   </hlm-dialog-content>
 </hlm-dialog>
