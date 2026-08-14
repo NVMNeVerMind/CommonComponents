@@ -36,6 +36,7 @@ import {MarkdownEditorComponent} from "./markdown-editor/markdown-editor.compone
 import {MarkdownPipe} from "./markdown.pipe";
 import {CodeEditorComponent} from "./code-editor/code-editor.component";
 import {StatCardComponent} from "./stat-card/stat-card.component";
+import {InactiveBadgeComponent} from "./inactive-badge/inactive-badge.component";
 
 export const ComponentsList = [
     PrimaryButtonComponent,
@@ -76,4 +77,5 @@ export const ComponentsList = [
   MarkdownPipe,
   CodeEditorComponent,
   StatCardComponent,
+  InactiveBadgeComponent,
 ]

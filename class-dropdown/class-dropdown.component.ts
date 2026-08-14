@@ -9,7 +9,9 @@ import {SelectOption} from "../little-input/select.option";
 export class ClassDropdownComponent implements OnInit, DoCheck {
   @Input() yearlyClasses: SelectOption[] = [];
   @Input() selectedYearlyClass: SelectOption | null = null;
+  @Input() disabled: boolean = false;
   @Output() classSelected = new EventEmitter<SelectOption>();
+  @Output() disabledClick = new EventEmitter<void>();
 
   protected isDropdownOpen: boolean = false;
   protected classSearchTerm: string = '';
@@ -72,6 +74,10 @@ export class ClassDropdownComponent implements OnInit, DoCheck {
   }
 
   toggleDropdown(): void {
+    if (this.disabled) {
+      this.disabledClick.emit();
+      return;
+    }
     this.isDropdownOpen = !this.isDropdownOpen;
     if (this.isDropdownOpen) {
       this.classSearchTerm = '';
