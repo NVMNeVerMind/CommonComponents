@@ -1,0 +1,28 @@
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 border-b bg-gray-50">
+  <div class="flex items-center gap-3">
+    <lucide-icon *ngIf="icon" [name]="icon" class="w-5 h-5 text-gray-500 flex-shrink-0"></lucide-icon>
+    <span *ngIf="total !== null" class="px-2 py-0.5 text-xs font-medium bg-gray-200 text-gray-600 rounded-full leading-none">
+      {{ total }} {{ totalLabel }}
+    </span>
+  </div>
+
+  <div class="flex items-center gap-4">
+    <div #filterSlot [class.hidden]="!hasFilters">
+      <ng-content></ng-content>
+    </div>
+
+    <app-search-input
+      *ngIf="searchEnabled"
+      #searchInput
+      [placeholder]="searchPlaceholder"
+      (change)="onSearchChange($event)"
+    ></app-search-input>
+
+    <app-small-checkbox
+      *ngIf="showCheckbox"
+      [isChecked]="checkboxChecked"
+      [label]="checkboxLabel"
+      (change)="onCheckboxChange($event)"
+    ></app-small-checkbox>
+  </div>
+</div>
