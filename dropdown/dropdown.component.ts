@@ -10,11 +10,11 @@ import {SelectOption} from "../little-input/select.option";
   template: `
     <div class="flex items-start justify-between gap-4">
       <label class="text-primary-foreground font-bold">{{ label }}</label>
-      <div class="flex flex-col items-center gap-2">
+      <div class="relative flex flex-col items-center gap-2">
         <input (focus)="triggerDropDown()" name="search" [(ngModel)]="searchString" (keyup)="matchString()"
                [placeholder]="label + '…'" aria-label="Example icon-button with a menu" hlmInput
                class="bg-white w-full"/>
-        <div *ngIf="isVisible" class="bg-white w-full h-fit rounded p-2">
+        <div *ngIf="isVisible" class="absolute z-50 w-full mt-1 bg-white rounded p-2 shadow-lg">
           <ul>
             <div (click)="changeValue(option)" *ngFor="let option of filteredOptions" hlmBtn variant="ghost"
                  class="w-full cursor-pointer items-start justify-start">
@@ -22,6 +22,7 @@ import {SelectOption} from "../little-input/select.option";
             </div>
           </ul>
         </div>
+        <div *ngIf="isVisible" class="fixed inset-0 z-40" (click)="closeDropdown()"></div>
       </div>
     </div>
   `,
@@ -57,6 +58,10 @@ export class DropdownComponent implements OnInit, OnChanges {
 
   triggerDropDown() {
     this.isVisible = !this.isVisible
+  }
+
+  closeDropdown(): void {
+    this.isVisible = false;
   }
 
   changeValue(option: SelectOption) {
