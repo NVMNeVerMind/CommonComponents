@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
 import {provideIcons} from '@ng-icons/core';
 import {lucideCheck, lucideChevronsUpDown, lucideSearch} from '@ng-icons/lucide';
 import {SelectOption} from "../little-input/select.option";
@@ -26,7 +26,7 @@ import {SelectOption} from "../little-input/select.option";
     </div>
   `,
 })
-export class DropdownComponent implements OnInit {
+export class DropdownComponent implements OnInit, OnChanges {
   @Input() options: SelectOption[] = [];
   @Input() label: string = 'Sélectionner';
   @Input() defaultValue: string = '';
@@ -36,7 +36,17 @@ export class DropdownComponent implements OnInit {
   protected filteredOptions: SelectOption[] = [];
 
   ngOnInit(): void {
-    this.filteredOptions = this.options;
+    this.refreshOptions();
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['options'] || changes['defaultValue']) {
+      this.refreshOptions();
+    }
+  }
+
+  private refreshOptions(): void {
+    this.matchString();
     if (this.defaultValue != '') {
       const defaultOption = this.options.find(option => option.id === this.defaultValue);
       if (defaultOption) {
