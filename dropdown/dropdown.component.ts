@@ -79,6 +79,6 @@ export class DropdownComponent implements OnInit, OnChanges {
 
   protected setValue(option: SelectOption) {
     this.searchString = option.value;
-    this.isVisible = false;
+    this.closeDropdown();
   }
 }
