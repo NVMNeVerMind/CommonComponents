@@ -14,11 +14,11 @@ import {SelectOption} from "../little-input/select.option";
         <input (focus)="triggerDropDown()" name="search" [(ngModel)]="searchString" (keyup)="matchString()"
                [placeholder]="label + '…'" aria-label="Example icon-button with a menu" hlmInput
                class="bg-white w-full"/>
-        <div *ngIf="isVisible" class="absolute z-50 w-full mt-1 bg-white rounded p-2 shadow-lg">
+        <div *ngIf="isVisible" class="absolute z-50 min-w-full w-max max-w-sm mt-1 bg-white rounded p-2 shadow-lg">
           <ul>
             <div (click)="changeValue(option)" *ngFor="let option of filteredOptions" hlmBtn variant="ghost"
                  class="w-full cursor-pointer items-start justify-start">
-              <li>{{ option.value }}</li>
+              <li class="whitespace-nowrap">{{ option.value }}</li>
             </div>
           </ul>
         </div>
