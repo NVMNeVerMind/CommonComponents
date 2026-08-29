@@ -8,22 +8,45 @@ import {SelectOption} from "../little-input/select.option";
   providers: [provideIcons({lucideChevronsUpDown, lucideSearch, lucideCheck})],
   standalone: false,
   template: `
-    <div class="flex items-start justify-between gap-4">
-      <label class="text-primary-foreground font-bold">{{ label }}</label>
-      <div class="relative flex flex-col items-center gap-2">
-        <input (focus)="triggerDropDown()" name="search" [(ngModel)]="searchString" (keyup)="matchString()"
-               [placeholder]="label + '…'" aria-label="Example icon-button with a menu" hlmInput
-               class="bg-white w-full"/>
-        <div *ngIf="isVisible" class="absolute z-50 min-w-full w-max max-w-sm mt-1 bg-white rounded p-2 shadow-lg">
-          <ul>
-            <div (click)="changeValue(option)" *ngFor="let option of filteredOptions" hlmBtn variant="ghost"
-                 class="w-full cursor-pointer items-start justify-start">
-              <li class="whitespace-nowrap">{{ option.value }}</li>
-            </div>
-          </ul>
+    <div class="relative">
+      <button type="button" (click)="toggleDropdown()"
+              class="w-full flex items-center justify-between gap-2 px-4 py-2 bg-white border border-gray-300 rounded-lg text-left hover:border-gray-400 focus:ring-2 focus:ring-primary focus:border-primary transition-all"
+              [class.ring-2]="isVisible" [class.ring-primary]="isVisible" [class.border-primary]="isVisible">
+        <span [class.text-gray-400]="!selectedOption" class="text-sm truncate">
+          {{ selectedOption?.value || label + '…' }}
+        </span>
+        <ng-icon hlm size="sm" name="lucideChevronsUpDown"
+                 class="text-gray-500 flex-none transition-transform duration-200"
+                 [class.rotate-180]="isVisible"></ng-icon>
+      </button>
+
+      <div *ngIf="isVisible"
+           class="absolute z-50 min-w-full w-max max-w-sm mt-1 bg-white border border-gray-200 rounded-lg shadow-lg overflow-hidden">
+        <div class="p-2 border-b border-gray-100">
+          <div class="relative">
+            <ng-icon hlm size="sm" name="lucideSearch"
+                     class="absolute left-2 top-1/2 -translate-y-1/2 text-gray-400"></ng-icon>
+            <input name="search" [(ngModel)]="searchString" (keyup)="matchString()" (click)="$event.stopPropagation()"
+                   [placeholder]="label + '…'" hlmInput
+                   class="w-full pl-9 pr-4 py-2 text-sm border border-gray-200 rounded-md focus:ring-2 focus:ring-primary focus:border-primary outline-none bg-white"/>
+          </div>
         </div>
-        <div *ngIf="isVisible" class="fixed inset-0 z-40" (click)="closeDropdown()"></div>
+
+        <div class="max-h-48 overflow-y-auto">
+          <div *ngIf="filteredOptions.length === 0" class="px-4 py-6 text-center text-gray-400">
+            <p class="text-sm">Aucun résultat</p>
+          </div>
+          <button *ngFor="let option of filteredOptions" type="button" (click)="changeValue(option)"
+                  class="w-full flex items-center gap-2 px-4 py-2.5 text-left hover:bg-gray-50 transition-colors whitespace-nowrap"
+                  [class.text-primary]="selectedOption?.id === option.id">
+            <span class="text-sm font-medium">{{ option.value }}</span>
+            <ng-icon *ngIf="selectedOption?.id === option.id" hlm size="sm" name="lucideCheck"
+                     class="ml-auto text-primary"></ng-icon>
+          </button>
+        </div>
       </div>
+
+      <div *ngIf="isVisible" class="fixed inset-0 z-40" (click)="closeDropdown()"></div>
     </div>
   `,
 })
@@ -35,6 +58,7 @@ export class DropdownComponent implements OnInit, OnChanges {
   protected isVisible = false;
   protected searchString = '';
   protected filteredOptions: SelectOption[] = [];
+  protected selectedOption: SelectOption | null = null;
 
   ngOnInit(): void {
     this.refreshOptions();
@@ -56,12 +80,18 @@ export class DropdownComponent implements OnInit, OnChanges {
     }
   }
 
-  triggerDropDown() {
-    this.isVisible = !this.isVisible
+  toggleDropdown() {
+    this.isVisible = !this.isVisible;
+    if (this.isVisible) {
+      this.searchString = '';
+      this.matchString();
+    }
   }
 
   closeDropdown(): void {
     this.isVisible = false;
+    this.searchString = '';
+    this.matchString();
   }
 
   changeValue(option: SelectOption) {
@@ -78,7 +108,7 @@ export class DropdownComponent implements OnInit, OnChanges {
   }
 
   protected setValue(option: SelectOption) {
-    this.searchString = option.value;
+    this.selectedOption = option;
     this.closeDropdown();
   }
 }
