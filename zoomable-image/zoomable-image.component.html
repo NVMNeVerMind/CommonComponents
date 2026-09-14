@@ -1,0 +1,13 @@
+<div class="relative inline-block cursor-pointer group w-fit shrink-0" (click)="openModal()">
+    <img [src]="src" [ngClass]="thumbnailClass" class="object-contain rounded-lg" [alt]="alt"/>
+    <div class="absolute top-2 right-2 bg-white/80 rounded-full p-1 shadow group-hover:scale-110 transition-transform">
+        <lucide-icon name="search" class="w-4 h-4 text-gray-600"></lucide-icon>
+    </div>
+</div>
+
+<div *ngIf="isModalOpen" class="fixed inset-0 flex items-center justify-center z-[1000] bg-black/80 p-4" (click)="closeModal()">
+    <div class="relative bg-background p-5 max-w-full max-h-full rounded-[10px] shadow-[0_5px_15px_rgba(0,0,0,0.3)]" (click)="$event.stopPropagation()">
+        <button type="button" aria-label="Fermer" class="absolute top-1 right-2 text-3xl font-bold leading-none cursor-pointer text-foreground" (click)="closeModal()">&times;</button>
+        <img [src]="src" alt="Enlarged Image" class="max-w-full max-h-[45rem] object-contain">
+    </div>
+</div>
