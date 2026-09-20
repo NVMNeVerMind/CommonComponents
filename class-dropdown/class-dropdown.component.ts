@@ -12,6 +12,9 @@ export class ClassDropdownComponent implements OnInit, DoCheck {
   @Input() disabled: boolean = false;
   @Output() classSelected = new EventEmitter<SelectOption>();
   @Output() disabledClick = new EventEmitter<void>();
+  @Input() checkboxLabel: string = '';
+  @Input() checkboxChecked: boolean = false;
+  @Output() checkboxChange = new EventEmitter<boolean>();
 
   protected isDropdownOpen: boolean = false;
   protected classSearchTerm: string = '';
@@ -99,6 +102,10 @@ export class ClassDropdownComponent implements OnInit, DoCheck {
         c.value.toLowerCase().includes(term)
       );
     }
+  }
+
+  onCheckboxChange(event: Event): void {
+    this.checkboxChange.emit((event.target as HTMLInputElement).checked);
   }
 
   selectClass(cls: SelectOption): void {

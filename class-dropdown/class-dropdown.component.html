@@ -24,8 +24,8 @@
       *ngIf="isDropdownOpen"
       class="absolute z-50 w-full mt-1 bg-white border border-gray-200 rounded-lg shadow-lg overflow-hidden"
     >
-      <div class="p-2 border-b border-gray-100">
-        <div class="relative">
+      <div class="p-2 border-b border-gray-100 flex items-center gap-2">
+        <div class="relative flex-1">
           <lucide-icon name="search" class="absolute left-2 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400"></lucide-icon>
           <input
             type="text"
@@ -37,6 +37,19 @@
             (click)="$event.stopPropagation()"
           />
         </div>
+        <label
+          *ngIf="checkboxLabel"
+          class="flex items-center gap-1.5 text-sm text-gray-600 whitespace-nowrap cursor-pointer select-none"
+          (click)="$event.stopPropagation()"
+        >
+          <input
+            type="checkbox"
+            [checked]="checkboxChecked"
+            (change)="onCheckboxChange($event)"
+            class="w-4 h-4 rounded border-gray-300 text-primary focus:ring-primary"
+          />
+          {{ checkboxLabel }}
+        </label>
       </div>
 
       <div class="max-h-48 overflow-y-auto">
