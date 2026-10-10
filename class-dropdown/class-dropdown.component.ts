@@ -12,6 +12,9 @@ export class ClassDropdownComponent implements OnInit, DoCheck {
   @Input() disabled: boolean = false;
   @Output() classSelected = new EventEmitter<SelectOption>();
   @Output() disabledClick = new EventEmitter<void>();
+  @Input() checkboxLabel: string = '';
+  @Input() checkboxChecked: boolean = false;
+  @Output() checkboxChange = new EventEmitter<boolean>();
 
   protected isDropdownOpen: boolean = false;
   protected classSearchTerm: string = '';
@@ -23,6 +26,10 @@ export class ClassDropdownComponent implements OnInit, DoCheck {
    */
   private autoSelectedOptionId: string | null = null;
 
+  /** Reference + length last seen, to detect `yearlyClasses` changes in `ngDoCheck`. */
+  private lastYearlyClasses: SelectOption[] | null = null;
+  private lastYearlyClassesLength: number | null = null;
+
   ngOnInit(): void {
     this.filterYearlyClasses();
   }
@@ -31,9 +38,17 @@ export class ClassDropdownComponent implements OnInit, DoCheck {
    * `ngDoCheck` rather than `ngOnChanges`: several parents fill `yearlyClasses`
    * by pushing into the existing array once their HTTP call resolves, so the
    * array reference never changes and `ngOnChanges` would not fire again. The
-   * check below is O(1) and guarded, so running it on every pass is cheap.
+   * checks below are O(1) and guarded, so running them on every pass is cheap.
    */
   ngDoCheck(): void {
+    if (
+      this.yearlyClasses !== this.lastYearlyClasses ||
+      this.yearlyClasses?.length !== this.lastYearlyClassesLength
+    ) {
+      this.lastYearlyClasses = this.yearlyClasses;
+      this.lastYearlyClassesLength = this.yearlyClasses?.length ?? null;
+      this.filterYearlyClasses();
+    }
     this.preselectSingleOption();
   }
 
@@ -99,6 +114,10 @@ export class ClassDropdownComponent implements OnInit, DoCheck {
         c.value.toLowerCase().includes(term)
       );
     }
+  }
+
+  onCheckboxChange(event: Event): void {
+    this.checkboxChange.emit((event.target as HTMLInputElement).checked);
   }
 
   selectClass(cls: SelectOption): void {
