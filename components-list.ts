@@ -27,7 +27,6 @@ import {UserMenuButtonComponent} from "./user-menu-button/user-menu-button.compo
 import {ProfileComponent} from "./profile/profile.component";
 import {ClassDropdownComponent} from "./class-dropdown/class-dropdown.component";
 import {SearchableSelectComponent} from "./searchable-select/searchable-select.component";
-import {ValidationModalComponent} from "./validation-modal/validation-modal.component";
 import {ChangelogComponent} from "./changelog/changelog.component";
 import {TimeScatterChartComponent} from "./stats/time-scatter-chart/time-scatter-chart.component";
 import {StatsGradeCardsComponent} from "./stats/stats-grade-cards/stats-grade-cards.component";
@@ -70,7 +69,6 @@ export const ComponentsList = [
     ProfileComponent,
   ClassDropdownComponent,
   SearchableSelectComponent,
-  ValidationModalComponent,
   ChangelogComponent,
   TimeScatterChartComponent,
   StatsGradeCardsComponent,
