@@ -1,7 +1,7 @@
-<button hlmBtn variant="ghost" class="hover:bg-transparent"
-        (click)="showChangelog()">
-    <lucide-icon *ngIf="showNotification()" name="bell-ring" color="#8B0000"></lucide-icon>
-    <lucide-icon *ngIf="!showNotification()" name="bell" color="#FFFFFF"></lucide-icon>
+<button hlmBtn variant="ghost" class="hover:bg-transparent p-0"
+        (click)="showChangelog()"
+        aria-label="Notifications">
+    <app-user-avatar [fullName]="authService.getFullName()" [showBadge]="showNotification()"></app-user-avatar>
 </button>
 
 <div *ngIf="displayChangelog" class="fixed inset-0 bg-black bg-opacity-50 z-40">

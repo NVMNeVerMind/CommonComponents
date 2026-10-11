@@ -1,7 +1,7 @@
 <div class="min-h-screen bg-gray-50 py-8 px-4">
     <div class="max-w-2xl mx-auto">
         <!-- Header -->
-        <div class="flex items-center gap-4 mb-8">
+        <div class="flex items-center justify-between gap-4 mb-8">
             <button
                     hlmBtn
                     variant="outline"
@@ -10,14 +10,13 @@
                     class="rounded-full">
                 <lucide-icon name="chevron-left" class="w-5 h-5"/>
             </button>
+            <app-changelog></app-changelog>
         </div>
 
         <!-- Profile Info Card -->
         <div class="bg-white rounded-2xl shadow-md p-6 mb-6">
             <div class="flex items-center gap-4 mb-6">
-                <div class="w-16 h-16 rounded-full bg-primary flex items-center justify-center text-white text-2xl font-bold">
-                    {{ fullName | slice:0:2 | uppercase }}
-                </div>
+                <app-user-avatar [fullName]="fullName" size="lg"></app-user-avatar>
                 <div>
                     <h2 class="text-xl font-semibold text-gray-800">{{ fullName }}</h2>
                     <p class="text-gray-500">{{ email }}</p>

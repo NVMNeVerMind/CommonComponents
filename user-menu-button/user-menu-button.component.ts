@@ -14,15 +14,6 @@ export class UserMenuButtonComponent {
 
   constructor(private readonly router: Router) {}
 
-  getUserInitials(): string {
-    if (!this.fullName) return '';
-    const parts = this.fullName.trim().split(' ');
-    if (parts.length >= 2) {
-      return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
-    }
-    return this.fullName.substring(0, 2).toUpperCase();
-  }
-
   onToggleMenu() {
     this.toggleMenu.emit();
   }

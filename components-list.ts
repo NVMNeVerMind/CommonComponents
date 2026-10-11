@@ -38,6 +38,7 @@ import {StatCardComponent} from "./stat-card/stat-card.component";
 import {InactiveBadgeComponent} from "./inactive-badge/inactive-badge.component";
 import {TableHeaderComponent} from "./table-header/table-header.component";
 import {ZoomableImageComponent} from "./zoomable-image/zoomable-image.component";
+import {UserAvatarComponent} from "./user-avatar/user-avatar.component";
 
 export const ComponentsList = [
     PrimaryButtonComponent,
@@ -80,4 +81,5 @@ export const ComponentsList = [
   InactiveBadgeComponent,
   TableHeaderComponent,
   ZoomableImageComponent,
+  UserAvatarComponent,
 ]
