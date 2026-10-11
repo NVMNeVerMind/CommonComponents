@@ -1,12 +1,17 @@
 <hlm-dialog>
   <button
     *ngIf="iconName"
+    type="button"
     brnDialogTrigger
-    class="flex items-center justify-center w-10 h-10 rounded-full text-destructive hover:bg-destructive/10 transition-colors"
+    hlmBtn
+    variant="destructive"
+    size="icon"
+    [attr.aria-label]="ariaLabel"
+    [title]="ariaLabel"
   >
     <lucide-icon [name]="iconName" class="w-4 h-4"></lucide-icon>
   </button>
-  <button *ngIf="title" brnDialogTrigger variant="destructive" hlmBtn>
+  <button *ngIf="title" type="button" brnDialogTrigger variant="destructive" hlmBtn>
     {{ title }}
   </button>
   <hlm-dialog-content *brnDialogContent="let ctx" class="!max-w-md !h-fit p-0 gap-0 overflow-hidden">
@@ -17,8 +22,8 @@
     <p brnDialogDescription class="px-6 py-6 text-gray-700">{{ description }}</p>
 
     <hlm-dialog-footer class="px-6 py-4 bg-gray-50 border-t border-gray-200">
-      <button (click)="no()" brnDialogClose hlmBtn variant="ghost">{{ refuse }}</button>
-      <button (click)="yes()" brnDialogClose variant="destructive" hlmBtn>{{ accept }}</button>
+      <button type="button" (click)="no()" brnDialogClose hlmBtn variant="ghost">{{ refuse }}</button>
+      <button type="button" (click)="yes()" brnDialogClose variant="destructive" hlmBtn>{{ accept }}</button>
     </hlm-dialog-footer>
   </hlm-dialog-content>
 </hlm-dialog>

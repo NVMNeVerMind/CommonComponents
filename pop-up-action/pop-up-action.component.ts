@@ -11,8 +11,11 @@ export class PopUpActionComponent {
   @Input() iconName: string = '';
   @Input() accept: string = 'Valider';
   @Input() refuse: string = 'Refuser';
+  @Input() ariaLabel: string = '';
 
-  @Input() no!: () => void;
-  @Input() yes!: (...args: any[]) => void;
+  // Defaults to a no-op so omitting [no] (as every current caller does) can no longer
+  // throw "no is not a function" when "Refuser" is clicked.
+  @Input() no: () => void = () => {};
+  @Input() yes!: () => void;
 
 }
