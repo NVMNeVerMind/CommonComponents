@@ -15,7 +15,8 @@ const SIZE_CLASSES: Record<UserAvatarSize, string> = {
 })
 export class UserAvatarComponent {
 	@Input() fullName: string = '';
-	@Input() showBadge: boolean = false;
+	@Input() bellTrigger: boolean = false;
+	@Input() unread: boolean = false;
 	@Input() size: UserAvatarSize = 'md';
 
 	get avatarClass(): string {

@@ -1,13 +1,12 @@
 <div class="relative inline-block">
     <brn-avatar hlmAvatar [class]="avatarClass">
-        <span *ngIf="initials" brnAvatarFallback hlmAvatarFallback>{{ initials }}</span>
-        <lucide-icon *ngIf="!initials" brnAvatarFallback hlmAvatarFallback name="user"></lucide-icon>
+        <lucide-icon *ngIf="bellTrigger"
+                     brnAvatarFallback
+                     hlmAvatarFallback
+                     name="bell"
+                     [class]="unread ? 'text-destructive' : 'text-white'"
+                     [attr.aria-label]="unread ? 'Notification non lue' : 'Notifications'"></lucide-icon>
+        <span *ngIf="!bellTrigger && initials" brnAvatarFallback hlmAvatarFallback>{{ initials }}</span>
+        <lucide-icon *ngIf="!bellTrigger && !initials" brnAvatarFallback hlmAvatarFallback name="user"></lucide-icon>
     </brn-avatar>
-    <span *ngIf="showBadge"
-          hlmBadge
-          variant="destructive"
-          class="absolute -top-1 -right-1 h-4 w-4 rounded-full border-2 border-white p-0 flex items-center justify-center"
-          aria-label="Notification non lue">
-        <lucide-icon name="bell" class="w-2.5 h-2.5 text-white"></lucide-icon>
-    </span>
 </div>
