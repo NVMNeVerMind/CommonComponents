@@ -1,6 +1,7 @@
 // Export all UI components from common
 export * from './ui-accordion-helm/src';
 export * from './ui-alert-helm/src';
+export * from './ui-avatar-helm/src';
 export * from './ui-button-helm/src';
 export * from './ui-card-helm/src';
 export * from './ui-command-helm/src';
