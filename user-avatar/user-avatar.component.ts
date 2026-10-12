@@ -17,10 +17,15 @@ export class UserAvatarComponent {
 	@Input() fullName: string = '';
 	@Input() bellTrigger: boolean = false;
 	@Input() unread: boolean = false;
+	@Input() primary: boolean = false;
 	@Input() size: UserAvatarSize = 'md';
 
 	get avatarClass(): string {
 		return SIZE_CLASSES[this.size];
+	}
+
+	get fallbackBgClass(): string {
+		return this.primary ? 'bg-primary text-primary-foreground' : '';
 	}
 
 	get initials(): string {

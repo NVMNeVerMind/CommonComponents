@@ -1,7 +1,7 @@
 <button hlmBtn variant="ghost" class="hover:bg-transparent p-0"
         (click)="showChangelog()"
         aria-label="Notifications">
-    <app-user-avatar [fullName]="authService.getFullName()" [bellTrigger]="true" [unread]="showNotification()"></app-user-avatar>
+    <app-user-avatar [fullName]="authService.getFullName()" [bellTrigger]="true" [unread]="showNotification()" [primary]="true"></app-user-avatar>
 </button>
 
 <div *ngIf="displayChangelog" class="fixed inset-0 bg-black bg-opacity-50 z-40">

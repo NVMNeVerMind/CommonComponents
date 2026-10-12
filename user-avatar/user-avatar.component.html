@@ -4,9 +4,9 @@
                      brnAvatarFallback
                      hlmAvatarFallback
                      name="bell"
-                     [class]="unread ? 'text-destructive' : 'text-white'"
+                     [class]="fallbackBgClass + ' ' + (unread ? 'text-destructive' : 'text-white')"
                      [attr.aria-label]="unread ? 'Notification non lue' : 'Notifications'"></lucide-icon>
-        <span *ngIf="!bellTrigger && initials" brnAvatarFallback hlmAvatarFallback>{{ initials }}</span>
-        <lucide-icon *ngIf="!bellTrigger && !initials" brnAvatarFallback hlmAvatarFallback name="user"></lucide-icon>
+        <span *ngIf="!bellTrigger && initials" brnAvatarFallback hlmAvatarFallback [class]="fallbackBgClass">{{ initials }}</span>
+        <lucide-icon *ngIf="!bellTrigger && !initials" brnAvatarFallback hlmAvatarFallback [class]="fallbackBgClass" name="user"></lucide-icon>
     </brn-avatar>
 </div>
