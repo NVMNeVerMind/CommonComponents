@@ -1,6 +1,6 @@
 <button hlmBtn variant="ghost" class="hover:bg-transparent p-0"
         (click)="showChangelog()"
-        aria-label="Notifications">
+        [attr.aria-label]="showNotification() ? 'Notification non lue' : 'Notifications'">
     <app-user-avatar [fullName]="authService.getFullName()" [bellTrigger]="true" [unread]="showNotification()" [primary]="true"></app-user-avatar>
 </button>
 
