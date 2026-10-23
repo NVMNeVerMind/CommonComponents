@@ -19,4 +19,9 @@ export class SearchInputComponent {
   log() {
     console.log(this.value)
   }
+
+  /** Clears the visible search text without emitting a `change` event. */
+  reset(): void {
+    this.value = '';
+  }
 }

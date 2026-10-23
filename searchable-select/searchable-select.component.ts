@@ -21,6 +21,9 @@ export class SearchableSelectComponent implements ControlValueAccessor, OnChange
   @Input() showOptionIcon: boolean = false;
   @Input() value: string | null = null;
   @Output() valueChange = new EventEmitter<string | null>();
+  @Input() checkboxLabel: string = '';
+  @Input() checkboxChecked: boolean = false;
+  @Output() checkboxChange = new EventEmitter<boolean>();
 
   protected isOpen: boolean = false;
   protected searchTerm: string = '';
@@ -59,6 +62,10 @@ export class SearchableSelectComponent implements ControlValueAccessor, OnChange
     this.filtered = !term
       ? [...this.options]
       : this.options.filter(o => o.value.toLowerCase().includes(term));
+  }
+
+  protected onCheckboxChange(event: Event): void {
+    this.checkboxChange.emit((event.target as HTMLInputElement).checked);
   }
 
   protected select(option: SelectOption): void {

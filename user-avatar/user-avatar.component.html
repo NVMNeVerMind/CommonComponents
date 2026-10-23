@@ -1,0 +1,12 @@
+<div class="relative inline-block">
+    <brn-avatar hlmAvatar [class]="avatarClass">
+        <lucide-icon *ngIf="bellTrigger"
+                     brnAvatarFallback
+                     hlmAvatarFallback
+                     name="bell"
+                     [class]="fallbackBgClass + ' ' + (unread ? 'text-destructive' : 'text-white')"
+                     aria-hidden="true"></lucide-icon>
+        <span *ngIf="!bellTrigger && initials" brnAvatarFallback hlmAvatarFallback [class]="fallbackBgClass">{{ initials }}</span>
+        <lucide-icon *ngIf="!bellTrigger && !initials" brnAvatarFallback hlmAvatarFallback [class]="fallbackBgClass" name="user"></lucide-icon>
+    </brn-avatar>
+</div>

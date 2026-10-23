@@ -27,7 +27,6 @@ import {UserMenuButtonComponent} from "./user-menu-button/user-menu-button.compo
 import {ProfileComponent} from "./profile/profile.component";
 import {ClassDropdownComponent} from "./class-dropdown/class-dropdown.component";
 import {SearchableSelectComponent} from "./searchable-select/searchable-select.component";
-import {ValidationModalComponent} from "./validation-modal/validation-modal.component";
 import {ChangelogComponent} from "./changelog/changelog.component";
 import {TimeScatterChartComponent} from "./stats/time-scatter-chart/time-scatter-chart.component";
 import {StatsGradeCardsComponent} from "./stats/stats-grade-cards/stats-grade-cards.component";
@@ -37,6 +36,9 @@ import {MarkdownPipe} from "./markdown.pipe";
 import {CodeEditorComponent} from "./code-editor/code-editor.component";
 import {StatCardComponent} from "./stat-card/stat-card.component";
 import {InactiveBadgeComponent} from "./inactive-badge/inactive-badge.component";
+import {TableHeaderComponent} from "./table-header/table-header.component";
+import {ZoomableImageComponent} from "./zoomable-image/zoomable-image.component";
+import {UserAvatarComponent} from "./user-avatar/user-avatar.component";
 
 export const ComponentsList = [
     PrimaryButtonComponent,
@@ -68,7 +70,6 @@ export const ComponentsList = [
     ProfileComponent,
   ClassDropdownComponent,
   SearchableSelectComponent,
-  ValidationModalComponent,
   ChangelogComponent,
   TimeScatterChartComponent,
   StatsGradeCardsComponent,
@@ -78,4 +79,7 @@ export const ComponentsList = [
   CodeEditorComponent,
   StatCardComponent,
   InactiveBadgeComponent,
+  TableHeaderComponent,
+  ZoomableImageComponent,
+  UserAvatarComponent,
 ]

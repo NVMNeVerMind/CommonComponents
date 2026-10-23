@@ -8,10 +8,10 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
 export class SmallCheckboxComponent {
   @Input() isChecked: boolean = false;
   @Input() label: string = '';
-  @Output() change = new EventEmitter<boolean>();
+  @Output() checkedChange = new EventEmitter<boolean>();
 
   protected switch() {
     this.isChecked = !this.isChecked;
-    this.change.emit(this.isChecked);
+    this.checkedChange.emit(this.isChecked);
   }
 }
