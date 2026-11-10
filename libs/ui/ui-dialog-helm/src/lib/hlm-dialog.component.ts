@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, Component, forwardRef, ViewEncapsulation} from '@angular/core';
 import {BrnDialog, BrnDialogOverlay, provideBrnDialogDefaultOptions} from '@spartan-ng/brain/dialog';
-import {HlmDialogOverlayDirective} from './hlm-dialog-overlay.directive';
+import {hlmDialogOverlayClass, HlmDialogOverlayDirective} from './hlm-dialog-overlay.directive';
 
 @Component({
     selector: 'hlm-dialog',
@@ -21,4 +21,9 @@ import {HlmDialogOverlayDirective} from './hlm-dialog-overlay.directive';
     exportAs: 'hlmDialog'
 })
 export class HlmDialogComponent extends BrnDialog {
+    constructor() {
+        super();
+        // A dialog bound to state="open" opens before the overlay directive applies its class, leaving the backdrop unstyled.
+        this.setOverlayClass(hlmDialogOverlayClass);
+    }
 }

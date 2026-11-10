@@ -7,6 +7,7 @@ import {Component, Input} from '@angular/core';
 })
 export class PopUpActionComponent {
   @Input() title: string = '';
+  @Input() dialogTitle: string = '';
   @Input() description: string = '';
   @Input() iconName: string = '';
   @Input() accept: string = 'Valider';
