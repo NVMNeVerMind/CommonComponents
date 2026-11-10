@@ -23,8 +23,7 @@ import {HlmDialogCloseDirective} from './hlm-dialog-close.directive';
 			<ng-content />
 		}
 
-		<button brnDialogClose hlm>
-			<span class="sr-only">Close</span>
+		<button brnDialogClose hlm type="button" aria-label="Fermer" title="Fermer">
 			<ng-icon hlm size="sm" name="lucideX" />
 		</button>
 	`,
