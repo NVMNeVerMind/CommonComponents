@@ -1,39 +1,31 @@
-<div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-  <div class="bg-white rounded-lg shadow-xl max-w-md w-full mx-4 p-6">
-    <div class="text-center mb-6">
-      <h2 class="text-xl font-semibold text-gray-800 mb-4">
+<div class="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4">
+  <div role="dialog" aria-modal="true" aria-labelledby="cgs-title" aria-describedby="cgs-description"
+       class="grid gap-4 w-full max-w-md border border-border bg-background p-6 shadow-lg sm:rounded-lg">
+    <div class="flex flex-col space-y-1.5 text-center sm:text-left">
+      <h2 id="cgs-title" class="text-lg font-semibold leading-none tracking-tight">
         Conditions Générales de Service (CGS)
       </h2>
-      <p class="text-gray-600 mb-4">
+      <p id="cgs-description" class="text-sm text-muted-foreground">
         Veuillez lire et accepter nos Conditions Générales de Service avant de continuer.
       </p>
+    </div>
+    <form [formGroup]="acceptCGSFormGroup" class="flex flex-col gap-3">
       <a
         [href]="'/' + Pages.cgs"
-        class="text-primary hover:text-primary/80 underline text-sm"
+        class="text-primary hover:text-primary/80 underline text-sm w-fit"
         rel="noopener noreferrer"
       >
         Lire les CGS complètes
       </a>
-    </div>
-    <form [formGroup]="acceptCGSFormGroup">
-      <label for="acceptCGS">J'accepte les CGS </label>
-      <input formControlName="accept" id="acceptCGS" type="checkbox" class="h-4 w-4 accent-primary focus:ring-primary border-gray-300 rounded">
+      <label for="acceptCGS" class="flex items-center gap-2 text-sm">
+        <input formControlName="accept" id="acceptCGS" type="checkbox"
+               class="h-4 w-4 rounded border-input accent-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
+        J'accepte les CGS
+      </label>
     </form>
-    <div class="flex gap-3 justify-center">
-
-      <button
-        (click)="reject()"
-        class="px-6 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors font-medium hover:cursor-pointer"
-      >
-        Refuser
-      </button>
-      <button
-        (click)="accept()"
-        [disabled]="this.acceptCGSFormGroup.invalid"
-        class="px-6 py-2 bg-primary text-white rounded-lg hover:bg-primary/80 transition-colors font-medium hover:cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
-      >
-        Accepter
-      </button>
+    <div class="flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2">
+      <button type="button" (click)="reject()" hlmBtn variant="outline">Refuser</button>
+      <button type="button" (click)="accept()" [disabled]="acceptCGSFormGroup.invalid" hlmBtn>Accepter</button>
     </div>
   </div>
 </div>

@@ -16,7 +16,7 @@
   </button>
   <hlm-dialog-content *brnDialogContent="let ctx" class="!max-w-md !h-fit p-0 gap-0 overflow-hidden">
     <hlm-dialog-header class="px-6 py-4 border-b border-red-200 bg-red-50 text-left">
-      <h2 brnDialogTitle class="text-lg font-semibold text-destructive">{{ title }}</h2>
+      <h2 brnDialogTitle class="text-lg font-semibold text-destructive">{{ dialogTitle || title }}</h2>
     </hlm-dialog-header>
 
     <p brnDialogDescription class="px-6 py-6 text-gray-700">{{ description }}</p>

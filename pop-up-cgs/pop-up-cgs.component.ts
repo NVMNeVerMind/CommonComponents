@@ -31,15 +31,14 @@ export class PopUpCgsComponent {
   }
 
   accept() {
-    // todo uncomment
-    // this.authService.acceptCGS().subscribe({
-    //   next: data => {
-    //     this.acceptCGSFormGroup = this.emptyFormCGS();
+    this.authService.acceptCGS().subscribe({
+      next: () => {
+        this.acceptCGSFormGroup = this.emptyFormCGS();
         this.authService.setIsCgsAccepted();
         this.router.navigate(['/' + Pages.home]);
-    //   }, error: error => {
-    //     this.notificationService.notify('Une erreur est survenue', true);
-    //   }
-    // })
+      }, error: () => {
+        this.notificationService.notify('Une erreur est survenue', true);
+      }
+    })
   }
 }
